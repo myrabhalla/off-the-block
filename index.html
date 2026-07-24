@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Off The Block — Nutrition for Female Swimmers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root{
+    --deep: #04294d;
+    --pool: #0a6ea8;
+    --aqua: #2ec4c6;
+    --foam: #eaf7f8;
+    --coral: #ff6b6b;
+    --text: #0c2231;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(180deg, var(--deep) 0%, var(--pool) 45%, var(--foam) 45%);
+    background-attachment: fixed;
+    color: var(--text);
+  }
+  header{
+    text-align:center;
+    padding: 60px 20px 30px;
+    color: white;
+  }
+  header h1{
+    font-size: 3em;
+    margin:0;
+    letter-spacing: 2px;
+  }
+  header p{
+    opacity:0.85;
+    max-width:600px;
+    margin: 10px auto 0;
+  }
+  nav{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    padding: 0 20px 30px;
+  }
+  nav button{
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    color:white;
+    padding:10px 18px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:0.95em;
+    transition: all 0.2s;
+  }
+  nav button:hover, nav button.active{
+    background: var(--coral);
+    border-color: var(--coral);
+  }
+  main{
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--foam);
+    padding: 40px;
+    border-radius: 20px 20px 0 0;
+    min-height: 60vh;
+  }
+  .panel{ display:none; }
+  .panel.active{ display:block; animation: fade 0.3s; }
+  @keyframes fade{ from{opacity:0;} to{opacity:1;} }
+  h2{ color: var(--pool); border-bottom: 3px solid var(--aqua); padding-bottom:8px; }
+  h3{ color: var(--deep); margin-top: 25px; }
+  .card{
+    background:white;
+    border-radius:12px;
+    padding:18px 20px;
+    margin: 14px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .tag{
+    display:inline-block;
+    background: var(--aqua);
+    color:white;
+    font-size:0.75em;
+    padding:3px 10px;
+    border-radius:20px;
+    margin-bottom:8px;
+  }
+  ul{ padding-left: 20px; }
+  li{ margin-bottom:6px; }
+  table{ width:100%; border-collapse: collapse; margin-top:15px; }
+  th, td{ text-align:left; padding:10px; border-bottom:1px solid #ddd; font-size:0.9em; }
+  th{ color: var(--pool); }
+  form label{ display:block; margin-top:12px; font-weight:bold; font-size:0.9em; }
+  form input, form select, form textarea{
+    width:100%;
+    padding:8px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    margin-top:4px;
+    font-size:0.95em;
+  }
+  form button{
+    margin-top:18px;
+    background: var(--pool);
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:1em;
+  }
+  form button:hover{ background: var(--deep); }
+  .delete-btn{
+    background:none;
+    border:none;
+    color: var(--coral);
+    cursor:pointer;
+    font-size:1em;
+  }
+  .empty{ color:#888; font-style:italic; text-align:center; padding:20px; }
+  footer{
+    text-align:center;
+    padding:20px;
+    background: var(--foam);
+    color:#888;
+    font-size:0.85em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏊‍♀️ Off The Block</h1>
+  <p>A fueling guide built for female swimmers — before, during, and after the water, plus the vitamins and minerals that keep you strong.</p>
+</header>
+
+<nav>
+  <button class="navbtn active" data-panel="pre">Pre-Fueling</button>
+  <button class="navbtn" data-panel="during">During</button>
+  <button class="navbtn" data-panel="post">Post</button>
+  <button class="navbtn" data-panel="vitamins">Vitamins & Minerals</button>
+  <button class="navbtn" data-panel="log">My Log</button>
+</nav>
+
+<main>
+
+  <!-- PRE -->
+  <div class="panel active" id="pre">
+    <h2>Pre-Training & Pre-Competition Fueling</h2>
+
+    <div class="card">
+      <span class="tag">3-4 hours before</span>
+      <h3>Full Meal</h3>
+      <ul>
+        <li>Carb-focused base: oatmeal, rice, pasta, or toast — this is what fills muscle glycogen tanks</li>
+        <li>Moderate protein: eggs, greek yogurt, chicken</li>
+        <li>Low fat & low fiber to avoid a heavy stomach in the water</li>
+        <li>Hydrate steadily: 16-20oz water in this window</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">60-90 min before</span>
+      <h3>Smaller Snack</h3>
+      <ul>
+        <li>Banana + honey, a bagel, granola bar, or a smoothie</li>
+        <li>Keep it mostly carbs — simple sugar is fine here, it digests fast</li>
+        <li>Avoid new/untested foods before competition</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">15-30 min before</span>
+      <h3>Race-Day Top Off</h3>
+      <ul>
+        <li>Small carb hit if needed: a few dates, applesauce pouch, or sports drink</li>
+        <li>Sip water — don't chug right before you dive in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DURING -->
+  <div class="panel" id="during">
+    <h2>During Training & Competition</h2>
+
+    <div class="card">
+      <span class="tag">Sessions under 60 min</span>
+      <h3>Water is usually enough</h3>
+      <ul>
+        <li>Sip between sets, don't wait until you feel thirsty</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Sessions over 60-90 min / multi-event meets</span>
+      <h3>Add carbs + electrolytes</h3>
+      <ul>
+        <li>Sports drink, diluted juice, or electrolyte tabs between heats</li>
+        <li>Simple carbs between events: fruit chews, banana, a small sports gel</li>
+        <li>Sodium matters — swimmers sweat more than people think, even in the pool</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Meet-day rhythm</span>
+      <h3>Between heats</h3>
+      <ul>
+        <li>Small, frequent carb snacks rather than one big meal</li>
+        <li>Keep hydrating consistently through the day, not just before your race</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- POST -->
+  <div class="panel" id="post">
+    <h2>Post-Training & Post-Competition Recovery</h2>
+
+    <div class="card">
+      <span class="tag">Within 30-45 min</span>
+      <h3>The recovery window</h3>
+      <ul>
+        <li>Carbs + protein together, roughly 3:1 ratio — chocolate milk is a classic for a reason</li>
+        <li>Rehydrate with fluid + sodium to replace sweat losses (weigh yourself before/after if you want to get precise)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Within 2 hours</span>
+      <h3>Full recovery meal</h3>
+      <ul>
+        <li>Balanced plate: protein (chicken, fish, tofu, eggs), carbs (rice, potatoes, bread), veggies/fruit, healthy fat</li>
+        <li>This is where glycogen refilling and muscle repair really happen</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Night before next session</span>
+      <h3>Don't skip the evening meal</h3>
+      <ul>
+        <li>Consistent recovery day to day matters more than any single perfect meal</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- VITAMINS -->
+  <div class="panel" id="vitamins">
+    <h2>Vitamins & Minerals for Female Athletes</h2>
+    <p>Female swimmers are at higher risk for a few specific deficiencies because of training volume, menstrual cycle losses, and sometimes under-fueling. Here's what to watch and how to work around it.</p>
+
+    <div class="card">
+      <span class="tag">Iron</span>
+      <h3>Most common deficiency in female athletes</h3>
+      <ul>
+        <li>Why: menstrual blood loss + "foot-strike" style hemolysis from hard training reduces iron stores</li>
+        <li>Signs of low iron: fatigue beyond normal, poor recovery, feeling constantly flat in the water</li>
+        <li>Food sources: red meat, poultry, beans, lentils, spinach, fortified cereal</li>
+        <li>Work-around: pair plant iron sources with vitamin C (citrus, peppers) to boost absorption; avoid tea/coffee right with iron-rich meals since it blocks uptake</li>
+        <li>Get ferritin checked with a doctor if fatigue is unexplained — don't self-supplement iron without a blood test, too much is harmful</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Calcium & Vitamin D</span>
+      <h3>Bone health duo</h3>
+      <ul>
+        <li>Why it matters: swimming is non-weight-bearing, so it doesn't build bone density the way running does — bone health has to come from nutrition</li>
+        <li>Food sources for calcium: dairy, fortified plant milk, tofu, leafy greens, almonds</li>
+        <li>Vitamin D: sunlight exposure, fatty fish, egg yolks, fortified foods — indoor pool athletes often run low, worth checking levels</li>
+        <li>Together they protect against stress fractures and support the hormonal health tied to strong training</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">B Vitamins</span>
+      <h3>Energy metabolism</h3>
+      <ul>
+        <li>B12 and folate support red blood cell production — extra important alongside iron</li>
+        <li>Food sources: eggs, dairy, meat, fortified cereals; B12 needs extra attention for anyone eating plant-based</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Watch for: RED-S</span>
+      <h3>Relative Energy Deficiency in Sport</h3>
+      <ul>
+        <li>Happens when calorie intake doesn't match training demands — can affect periods, bone density, mood, and performance all at once</li>
+        <li>Signs: missed or irregular periods, constant fatigue, frequent injuries, mood changes</li>
+        <li>This is a "talk to a doctor or sports dietitian" flag, not a diet-tweak-at-home flag</li>
+      </ul>
+    </div>
+
+    <p style="font-size:0.85em; color:#666; margin-top:20px;">This guide is educational, not medical advice — for personalized supplement or deficiency guidance, check in with a doctor or registered sports dietitian.</p>
+  </div>
+
+  <!-- LOG -->
+  <div class="panel" id="log">
+    <h2>My Fueling Log</h2>
+    <p>Track what you're eating around training so you can spot patterns over a season.</p>
+
+    <form id="logForm">
+      <label>Date</label>
+      <input type="date" id="logDate" required>
+
+      <label>Timing</label>
+      <select id="logTiming">
+        <option>Pre-training</option>
+        <option>During training</option>
+        <option>Post-training</option>
+        <option>Pre-competition</option>
+        <option>During competition</option>
+        <option>Post-competition</option>
+      </select>
+
+      <label>What did you eat/drink?</label>
+      <input type="text" id="logFood" placeholder="e.g. banana + oatmeal + water" required>
+
+      <label>How did you feel? (energy, stomach, etc.)</label>
+      <textarea id="logNotes" rows="2" placeholder="optional"></textarea>
+
+      <button type="submit">Add Entry</button>
+    </form>
+
+    <h3>History</h3>
+    <div id="logHistory"></div>
+  </div>
+
+</main>
+
+<footer>Off The Block — built by Myra 🏊‍♀️</footer>
+
+<script>
+  // Navigation
+  const buttons = document.querySelectorAll('.navbtn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.panel).classList.add('active');
+    });
+  });
+
+  // Logging with localStorage
+  const STORAGE_KEY = 'offTheBlockLogs';
+
+  function getLogs(){
+    try{
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    }catch(e){
+      return [];
+    }
+  }
+
+  function saveLogs(logs){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(logs));
+  }
+
+  function renderLogs(){
+    const logs = getLogs().sort((a,b) => new Date(b.date) - new Date(a.date));
+    const container = document.getElementById('logHistory');
+    if(logs.length === 0){
+      container.innerHTML = '<p class="empty">No entries yet — add your first one above!</p>';
+      return;
+    }
+    let html = '<table><tr><th>Date</th><th>Timing</th><th>Food/Drink</th><th>Notes</th><th></th></tr>';
+    logs.forEach(entry => {
+      html += `<tr>
+        <td>${entry.date}</td>
+        <td>${entry.timing}</td>
+        <td>${entry.food}</td>
+        <td>${entry.notes || '—'}</td>
+        <td><button class="delete-btn" data-id="${entry.id}">✕</button></td>
+      </tr>`;
+    });
+    html += '</table>';
+    container.innerHTML = html;
+
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        const logs = getLogs().filter(l => l.id !== id);
+        saveLogs(logs);
+        renderLogs();
+      });
+    });
+  }
+
+  document.getElementById('logForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const logs = getLogs();
+    logs.push({
+      id: Date.now().toString(),
+      date: document.getElementById('logDate').value,
+      timing: document.getElementById('logTiming').value,
+      food: document.getElementById('logFood').value,
+      notes: document.getElementById('logNotes').value
+    });
+    saveLogs(logs);
+    this.reset();
+    renderLogs();
+  });
+
+  renderLogs();
+</script>
+
+</body>
+</html>
