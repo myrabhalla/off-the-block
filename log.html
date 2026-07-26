@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fueling Log — Off The Block</title>
+<meta name="description" content="A simple log for swimmers: record what you ate around training and competition, how much you drank, and how you felt.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" fill="none" stroke="#63a5f2" stroke-width="2"/>
+        <path d="M3.5 19c3-2.6 5.5-2.6 8.5 0s5.5 2.6 8.5 0 5.5-2.6 8.5 0" fill="none" stroke="#8ed6ef" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="20" cy="11" r="3" fill="#c7effa"/>
+      </svg>
+      <span class="brand-name">Off The Block</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="training.html">Training</a>
+      <a href="competition.html">Competition</a>
+      <a href="nutrients.html">Vitamins &amp; Minerals</a>
+      <a href="log.html" aria-current="page">Fueling Log</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="wrap page-head">
+    <p class="eyebrow">Your season</p>
+    <h1>Fueling log</h1>
+    <p class="lede">
+      One entry takes about fifteen seconds. Log a few weeks and you stop guessing — you start seeing
+      which breakfasts leave you flat, which snacks settle before a race, and where the fluid goes
+      missing. Entries are saved in this browser on this device only.
+    </p>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ---------------- add an entry ---------------- -->
+    <form class="form-card" id="logForm" autocomplete="off">
+      <h2>Add an entry</h2>
+      <p class="hint">Only the date, the session, and what you had are required.</p>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="f-date">Date</label>
+          <input type="date" id="f-date" name="date" required>
+        </div>
+
+        <div class="field">
+          <label for="f-context">Session</label>
+          <select id="f-context" name="context">
+            <option value="training">Training</option>
+            <option value="competition">Competition</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-phase">When</label>
+          <select id="f-phase" name="phase">
+            <option value="before">Before</option>
+            <option value="during">During</option>
+            <option value="after">After</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-energy">How you felt</label>
+          <select id="f-energy" name="energy">
+            <option value="">Not rated</option>
+            <option value="5">5 — flying</option>
+            <option value="4">4 — good</option>
+            <option value="3">3 — fine</option>
+            <option value="2">2 — heavy</option>
+            <option value="1">1 — empty</option>
+          </select>
+        </div>
+
+        <div class="field field-wide">
+          <label for="f-food">What did you eat or drink?</label>
+          <input type="text" id="f-food" name="food" required
+                 placeholder="Porridge with honey and banana, plus a glass of milk">
+        </div>
+
+        <div class="field">
+          <label for="f-fluid">Fluid (oz, optional)</label>
+          <input type="number" id="f-fluid" name="fluid" min="0" max="300" step="1" placeholder="16">
+        </div>
+
+        <div class="field field-wide">
+          <label for="f-notes">Notes (optional)</label>
+          <textarea id="f-notes" name="notes" rows="2"
+                    placeholder="Stomach felt heavy through the first 800. Ate a bit too close to warm-up."></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Save entry</button>
+        <span class="form-note">Stored locally in this browser. Nothing is uploaded anywhere.</span>
+      </div>
+    </form>
+
+    <!-- ---------------- stats ---------------- -->
+    <div class="stat-row" id="logStats"></div>
+
+    <!-- ---------------- history ---------------- -->
+    <div class="log-toolbar">
+      <div class="filters" id="logFilters" role="group" aria-label="Filter entries">
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">All entries</button>
+        <button type="button" class="chip" data-filter="training" aria-pressed="false">Training</button>
+        <button type="button" class="chip" data-filter="competition" aria-pressed="false">Competition</button>
+      </div>
+      <div class="filters">
+        <button type="button" class="text-btn" id="exportCsv">Export as CSV</button>
+        <button type="button" class="text-btn" id="clearAll">Clear all entries</button>
+      </div>
+    </div>
+
+    <div id="logList"></div>
+
+    <p class="disclaimer">
+      This log is a self-tracking tool, not an assessment. It counts entries and averages the energy
+      score you give it — nothing more. If tracking food starts to feel stressful or compulsive rather
+      than useful, stop logging and talk to a coach, a doctor, or a registered dietitian.
+    </p>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Off The Block — built by Myra Bhalla</span>
+    <span class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="training.html">Training</a>
+      <a href="competition.html">Competition</a>
+      <a href="nutrients.html">Vitamins &amp; Minerals</a>
+    </span>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

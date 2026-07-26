@@ -2,407 +2,298 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Off The Block — Nutrition for Female Swimmers</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  :root{
-    --deep: #04294d;
-    --pool: #0a6ea8;
-    --aqua: #2ec4c6;
-    --foam: #eaf7f8;
-    --coral: #ff6b6b;
-    --text: #0c2231;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(180deg, var(--deep) 0%, var(--pool) 45%, var(--foam) 45%);
-    background-attachment: fixed;
-    color: var(--text);
-  }
-  header{
-    text-align:center;
-    padding: 60px 20px 30px;
-    color: white;
-  }
-  header h1{
-    font-size: 3em;
-    margin:0;
-    letter-spacing: 2px;
-  }
-  header p{
-    opacity:0.85;
-    max-width:600px;
-    margin: 10px auto 0;
-  }
-  nav{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
-    padding: 0 20px 30px;
-  }
-  nav button{
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.4);
-    color:white;
-    padding:10px 18px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:0.95em;
-    transition: all 0.2s;
-  }
-  nav button:hover, nav button.active{
-    background: var(--coral);
-    border-color: var(--coral);
-  }
-  main{
-    max-width: 800px;
-    margin: 0 auto;
-    background: var(--foam);
-    padding: 40px;
-    border-radius: 20px 20px 0 0;
-    min-height: 60vh;
-  }
-  .panel{ display:none; }
-  .panel.active{ display:block; animation: fade 0.3s; }
-  @keyframes fade{ from{opacity:0;} to{opacity:1;} }
-  h2{ color: var(--pool); border-bottom: 3px solid var(--aqua); padding-bottom:8px; }
-  h3{ color: var(--deep); margin-top: 25px; }
-  .card{
-    background:white;
-    border-radius:12px;
-    padding:18px 20px;
-    margin: 14px 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  .tag{
-    display:inline-block;
-    background: var(--aqua);
-    color:white;
-    font-size:0.75em;
-    padding:3px 10px;
-    border-radius:20px;
-    margin-bottom:8px;
-  }
-  ul{ padding-left: 20px; }
-  li{ margin-bottom:6px; }
-  table{ width:100%; border-collapse: collapse; margin-top:15px; }
-  th, td{ text-align:left; padding:10px; border-bottom:1px solid #ddd; font-size:0.9em; }
-  th{ color: var(--pool); }
-  form label{ display:block; margin-top:12px; font-weight:bold; font-size:0.9em; }
-  form input, form select, form textarea{
-    width:100%;
-    padding:8px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    margin-top:4px;
-    font-size:0.95em;
-  }
-  form button{
-    margin-top:18px;
-    background: var(--pool);
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:1em;
-  }
-  form button:hover{ background: var(--deep); }
-  .delete-btn{
-    background:none;
-    border:none;
-    color: var(--coral);
-    cursor:pointer;
-    font-size:1em;
-  }
-  .empty{ color:#888; font-style:italic; text-align:center; padding:20px; }
-  footer{
-    text-align:center;
-    padding:20px;
-    background: var(--foam);
-    color:#888;
-    font-size:0.85em;
-  }
-</style>
+<title>Off The Block — Fueling Guide for Female Swimmers</title>
+<meta name="description" content="A practical fueling and nutrition guide for female swimmers: what to eat around training, what to eat around competition, the vitamins and minerals that matter most, and a log to track it all.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
-<header>
-  <h1>🏊‍♀️ Off The Block</h1>
-  <p>A fueling guide built for female swimmers — before, during, and after the water, plus the vitamins and minerals that keep you strong.</p>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" fill="none" stroke="#63a5f2" stroke-width="2"/>
+        <path d="M3.5 19c3-2.6 5.5-2.6 8.5 0s5.5 2.6 8.5 0 5.5-2.6 8.5 0" fill="none" stroke="#8ed6ef" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="20" cy="11" r="3" fill="#c7effa"/>
+      </svg>
+      <span class="brand-name">Off The Block</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="training.html">Training</a>
+      <a href="competition.html">Competition</a>
+      <a href="nutrients.html">Vitamins &amp; Minerals</a>
+      <a href="log.html">Fueling Log</a>
+    </nav>
+  </div>
 </header>
-
-<nav>
-  <button class="navbtn active" data-panel="pre">Pre-Fueling</button>
-  <button class="navbtn" data-panel="during">During</button>
-  <button class="navbtn" data-panel="post">Post</button>
-  <button class="navbtn" data-panel="vitamins">Vitamins & Minerals</button>
-  <button class="navbtn" data-panel="log">My Log</button>
-</nav>
 
 <main>
 
-  <!-- PRE -->
-  <div class="panel active" id="pre">
-    <h2>Pre-Training & Pre-Competition Fueling</h2>
-
-    <div class="card">
-      <span class="tag">3-4 hours before</span>
-      <h3>Full Meal</h3>
-      <ul>
-        <li>Carb-focused base: oatmeal, rice, pasta, or toast — this is what fills muscle glycogen tanks</li>
-        <li>Moderate protein: eggs, greek yogurt, chicken</li>
-        <li>Low fat & low fiber to avoid a heavy stomach in the water</li>
-        <li>Hydrate steadily: 16-20oz water in this window</li>
-      </ul>
+  <!-- ============================ HERO ============================ -->
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Nutrition for female swimmers</p>
+      <h1>Fuel the work<br>you already <em>put in</em>.</h1>
+      <p class="lede">
+        Training is the part everyone sees. Fueling is the part that decides whether that
+        training turns into speed. This is a plain-language guide to eating and drinking around
+        the pool — built for female swimmers, from morning practice to finals night.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="training.html">Start with training</a>
+        <a class="btn btn-ghost" href="log.html">Open the fueling log</a>
+      </div>
     </div>
 
-    <div class="card">
-      <span class="tag">60-90 min before</span>
-      <h3>Smaller Snack</h3>
-      <ul>
-        <li>Banana + honey, a bagel, granola bar, or a smoothie</li>
-        <li>Keep it mostly carbs — simple sugar is fine here, it digests fast</li>
-        <li>Avoid new/untested foods before competition</li>
-      </ul>
+    <figure class="hero-art-frame">
+      <!-- Painted aerial view: one swimmer, one lane. -->
+      <svg class="hero-art" viewBox="0 0 800 640" role="img" aria-labelledby="artTitle artDesc">
+        <title id="artTitle">A swimmer alone in a lane, seen from above</title>
+        <desc id="artDesc">A painted overhead view of bright blue pool water with beaded lane ropes and a single swimmer mid-stroke, throwing up white foam.</desc>
+
+        <defs>
+          <linearGradient id="deep" x1="0.1" y1="0" x2="0.9" y2="1">
+            <stop offset="0" stop-color="#4187ec"/>
+            <stop offset="0.4" stop-color="#5ba2f5"/>
+            <stop offset="0.76" stop-color="#3573dd"/>
+            <stop offset="1" stop-color="#2a5ec8"/>
+          </linearGradient>
+
+          <!-- loose wobble: turns hard vector edges into brushed ones -->
+          <filter id="brush" x="-15%" y="-15%" width="130%" height="130%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.013 0.021" numOctaves="3" seed="12" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+
+          <!-- tighter wobble for ropes, foam and small marks -->
+          <filter id="brushFine" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="5" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+
+          <filter id="brushSoft" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="21" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/>
+            <feGaussianBlur in="d" stdDeviation="0.9"/>
+          </filter>
+
+          <filter id="haze" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="24"/>
+          </filter>
+
+          <filter id="canvas">
+            <feTurbulence type="fractalNoise" baseFrequency="0.86" numOctaves="3" seed="3"/>
+            <feColorMatrix type="saturate" values="0"/>
+          </filter>
+        </defs>
+
+        <!-- ---------- water ---------- -->
+        <rect width="800" height="640" fill="url(#deep)"/>
+
+        <!-- broad painted patches, laid on like flat acrylic -->
+        <g filter="url(#brush)">
+          <path d="M-40 30C150 4 320 62 470 24s250-12 400 16v150C700 222 520 162 350 192S60 242-40 202z" fill="#5fabf2" opacity="0.42"/>
+          <path d="M-40 250C120 220 300 290 460 250s240 0 420 30v170C640 420 470 470 300 440S40 470-40 430z" fill="#2a5ec8" opacity="0.42"/>
+          <path d="M-40 470C160 430 340 500 500 470s230 10 380 40v190H-40z" fill="#2454bd" opacity="0.48"/>
+          <path d="M120 84c130-30 250 20 330 0s160-30 260 0v88c-140-38-250 20-370 30S170 164 120 174z" fill="#88c8f7" opacity="0.3"/>
+          <path d="M-20 326c170-40 260 30 420 10s220-30 380 10v72c-160-30-290 30-430 40S60 418-20 398z" fill="#4f8df0" opacity="0.34"/>
+          <path d="M40 508c150-32 250 26 400 6s200-20 340 8v52c-180-26-300 26-440 34S110 588 40 572z" fill="#3d78e4" opacity="0.32"/>
+        </g>
+
+        <!-- pool-floor lane markings, far below the surface -->
+        <g filter="url(#brush)" opacity="0.3">
+          <rect x="-30" y="152" width="860" height="24" fill="#1a3f96"/>
+          <rect x="-30" y="354" width="860" height="28" fill="#1a3f96"/>
+          <rect x="-30" y="560" width="860" height="24" fill="#1a3f96"/>
+        </g>
+
+        <!-- sunlight caustics -->
+        <g filter="url(#brushSoft)" fill="none" stroke="#e6f6ff" stroke-linecap="round">
+          <path d="M60 66c60-16 110 12 170 0s110-20 170-6" stroke-width="6" opacity="0.34"/>
+          <path d="M430 124c70-14 130 14 200 2" stroke-width="5" opacity="0.28"/>
+          <path d="M40 228c80-18 140 14 220 2s140-22 210-8" stroke-width="7" opacity="0.3"/>
+          <path d="M496 296c70-12 130 12 190 0" stroke-width="6" opacity="0.26"/>
+          <path d="M60 452c90-20 150 16 240 2s150-20 230-6" stroke-width="7" opacity="0.28"/>
+          <path d="M120 550c80-16 140 12 220 0s140-18 210-6" stroke-width="6" opacity="0.24"/>
+          <path d="M300 614c80-14 150 10 230 0" stroke-width="5" opacity="0.2"/>
+        </g>
+
+        <!-- ---------- lane ropes ---------- -->
+        <g filter="url(#brushFine)" stroke-linecap="round" fill="none">
+          <path d="M-20 170h840" stroke="#0f2a6b" stroke-width="16" opacity="0.32"/>
+          <path d="M-20 164h840" stroke="#ffffff" stroke-width="16" stroke-dasharray="1 34"/>
+          <path d="M-20 164h840" stroke="#2f6fe0" stroke-width="16" stroke-dasharray="1 34" stroke-dashoffset="17"/>
+
+          <path d="M-20 378h840" stroke="#0f2a6b" stroke-width="18" opacity="0.34"/>
+          <path d="M-20 371h840" stroke="#ffffff" stroke-width="18" stroke-dasharray="1 38"/>
+          <path d="M-20 371h840" stroke="#2f6fe0" stroke-width="18" stroke-dasharray="1 38" stroke-dashoffset="19"/>
+
+          <path d="M-20 585h840" stroke="#0f2a6b" stroke-width="16" opacity="0.32"/>
+          <path d="M-20 578h840" stroke="#ffffff" stroke-width="16" stroke-dasharray="1 34"/>
+          <path d="M-20 578h840" stroke="#2f6fe0" stroke-width="16" stroke-dasharray="1 34" stroke-dashoffset="17"/>
+        </g>
+
+        <!-- ---------- the swimmer, alone in the middle lane ---------- -->
+
+        <ellipse cx="380" cy="272" rx="210" ry="66" fill="#bfe6ff" opacity="0.2" filter="url(#haze)"/>
+
+        <!-- wake, thinning as it trails away -->
+        <g filter="url(#brushSoft)" fill="#ffffff">
+          <ellipse cx="272" cy="278" rx="58" ry="20" opacity="0.4"/>
+          <ellipse cx="196" cy="268" rx="42" ry="14" opacity="0.28"/>
+          <ellipse cx="136" cy="280" rx="30" ry="11" opacity="0.19"/>
+          <ellipse cx="86" cy="270" rx="21" ry="8" opacity="0.13"/>
+        </g>
+
+        <!-- her shadow on the floor of the pool -->
+        <g filter="url(#brush)" opacity="0.32">
+          <ellipse cx="366" cy="308" rx="96" ry="21" fill="#0f2a6b"/>
+          <ellipse cx="268" cy="312" rx="40" ry="12" fill="#0f2a6b"/>
+        </g>
+
+        <!-- the water she has already churned up, sitting behind her -->
+        <g filter="url(#brushFine)" fill="#ffffff">
+          <ellipse cx="452" cy="296" rx="46" ry="19" opacity="0.85"/>
+          <ellipse cx="496" cy="280" rx="30" ry="15" opacity="0.72"/>
+          <ellipse cx="398" cy="304" rx="32" ry="13" opacity="0.6"/>
+          <ellipse cx="344" cy="296" rx="26" ry="11" opacity="0.46"/>
+        </g>
+
+        <!-- body -->
+        <g filter="url(#brushSoft)" fill="none" stroke-linecap="round">
+          <path d="M310 266c-34-3-64-12-92-25" stroke="#0a1c4d" stroke-width="21" opacity="0.85"/>
+          <path d="M312 282c-34 7-66 12-96 12" stroke="#0a1c4d" stroke-width="18" opacity="0.8"/>
+          <path d="M320 272c32-9 68-13 98-10" stroke="#0f2a6b" stroke-width="46"/>
+          <path d="M322 272c20-6 38-9 53-10" stroke="#071539" stroke-width="47"/>
+          <path d="M402 254c-24-16-50-25-77-25" stroke="#16357f" stroke-width="17" opacity="0.85"/>
+        </g>
+        <g filter="url(#brushSoft)">
+          <circle cx="428" cy="266" r="23" fill="#0f2a6b"/>
+          <path d="M414 252a23 23 0 0 1 30 3" fill="#8ed6ef"/>
+          <path d="M416 262c6-6 17-7 24-2" stroke="#0a1c4d" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </g>
+        <g filter="url(#brushSoft)" fill="none" stroke-linecap="round">
+          <path d="M420 256c20-15 40-29 64-32" stroke="#bfe6ff" stroke-width="19"/>
+          <path d="M484 224c12-3 21-7 28-13" stroke="#e6f6ff" stroke-width="15"/>
+        </g>
+
+        <!-- spray thrown off the catching arm, in front of everything -->
+        <g filter="url(#brushFine)" fill="#ffffff">
+          <ellipse cx="512" cy="240" rx="19" ry="11" opacity="0.7"/>
+          <ellipse cx="470" cy="248" rx="14" ry="8" opacity="0.55"/>
+          <circle cx="536" cy="222" r="7" opacity="0.62"/>
+          <circle cx="524" cy="262" r="5" opacity="0.48"/>
+          <circle cx="380" cy="316" r="5.5" opacity="0.4"/>
+          <circle cx="330" cy="306" r="4" opacity="0.3"/>
+        </g>
+
+        <!-- kick splash behind her feet -->
+        <g filter="url(#brushFine)" fill="#ffffff">
+          <ellipse cx="242" cy="262" rx="34" ry="15" opacity="0.68"/>
+          <ellipse cx="212" cy="246" rx="18" ry="10" opacity="0.5"/>
+          <circle cx="188" cy="234" r="6.5" opacity="0.44"/>
+          <circle cx="230" cy="296" r="5" opacity="0.34"/>
+        </g>
+
+        <!-- canvas grain over everything -->
+        <rect width="800" height="640" filter="url(#canvas)" opacity="0.14" style="mix-blend-mode:overlay"/>
+      </svg>
+      <figcaption>Lane four, halfway down a set nobody is watching.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================ PURPOSE ============================ -->
+  <section class="purpose">
+    <div class="wrap purpose-grid">
+      <h2>What this is for</h2>
+      <div>
+        <p>
+          <strong>Off The Block is a fueling reference for female swimmers and the people who coach
+          them.</strong> Most nutrition advice is written for runners, lifters, or nobody in
+          particular — it rarely accounts for a sport where you train twice a day, can't drink
+          mid-set, sweat without noticing it, and race five times before lunch.
+        </p>
+        <p>
+          The guide is organised the way a swimmer's week actually runs. One section covers the
+          <strong>training day</strong> — before, during, and after practice, including 5am wake-ups
+          and doubles. The other covers <strong>competition</strong> — the night before, the gap
+          between heats, and recovery across a three-day meet. A third section covers the
+          <strong>vitamins and minerals</strong> female athletes most often run short on, why
+          swimming specifically raises the risk, and how to work around it with food. The
+          <strong>fueling log</strong> lets you record what you ate, how much you drank, and how you
+          felt, so patterns show up over a season instead of getting forgotten by Thursday.
+        </p>
+        <p>
+          Everything here is educational. It is meant to give you a starting point and better
+          questions — not to replace a doctor, a registered dietitian, or a blood test.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SECTION CARDS ============================ -->
+  <section class="wrap" style="padding-top:64px;">
+    <div class="card-grid">
+      <a class="card link-card" href="training.html">
+        <span class="tag tag-training">Section one</span>
+        <h3>The training day</h3>
+        <p>Pre-training meals and snacks by time window, what to sip through a long set, and how to
+          recover before you do it again tomorrow morning.</p>
+        <span class="go">Before, during &amp; after training &rarr;</span>
+      </a>
+
+      <a class="card link-card" href="competition.html">
+        <span class="tag tag-competition">Section two</span>
+        <h3>Competition day</h3>
+        <p>Loading the night before, an hour-by-hour race-morning timeline, what to eat between
+          heats, and recovery on a multi-day meet.</p>
+        <span class="go">Before, during &amp; after competition &rarr;</span>
+      </a>
+
+      <a class="card link-card" href="nutrients.html">
+        <span class="tag">Section three</span>
+        <h3>Vitamins &amp; minerals</h3>
+        <p>Iron, calcium, vitamin D, B12, magnesium and zinc — why female swimmers run low, the
+          signs, and the food fixes that actually absorb.</p>
+        <span class="go">What to watch for &rarr;</span>
+      </a>
+
+      <a class="card link-card" href="log.html">
+        <span class="tag">Tool</span>
+        <h3>Fueling log</h3>
+        <p>Record a meal in about fifteen seconds. Tag it training or competition, rate your energy,
+          and watch your own patterns build up.</p>
+        <span class="go">Track your season &rarr;</span>
+      </a>
     </div>
 
-    <div class="card">
-      <span class="tag">15-30 min before</span>
-      <h3>Race-Day Top Off</h3>
-      <ul>
-        <li>Small carb hit if needed: a few dates, applesauce pouch, or sports drink</li>
-        <li>Sip water — don't chug right before you dive in</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- DURING -->
-  <div class="panel" id="during">
-    <h2>During Training & Competition</h2>
-
-    <div class="card">
-      <span class="tag">Sessions under 60 min</span>
-      <h3>Water is usually enough</h3>
-      <ul>
-        <li>Sip between sets, don't wait until you feel thirsty</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <span class="tag">Sessions over 60-90 min / multi-event meets</span>
-      <h3>Add carbs + electrolytes</h3>
-      <ul>
-        <li>Sports drink, diluted juice, or electrolyte tabs between heats</li>
-        <li>Simple carbs between events: fruit chews, banana, a small sports gel</li>
-        <li>Sodium matters — swimmers sweat more than people think, even in the pool</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <span class="tag">Meet-day rhythm</span>
-      <h3>Between heats</h3>
-      <ul>
-        <li>Small, frequent carb snacks rather than one big meal</li>
-        <li>Keep hydrating consistently through the day, not just before your race</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- POST -->
-  <div class="panel" id="post">
-    <h2>Post-Training & Post-Competition Recovery</h2>
-
-    <div class="card">
-      <span class="tag">Within 30-45 min</span>
-      <h3>The recovery window</h3>
-      <ul>
-        <li>Carbs + protein together, roughly 3:1 ratio — chocolate milk is a classic for a reason</li>
-        <li>Rehydrate with fluid + sodium to replace sweat losses (weigh yourself before/after if you want to get precise)</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <span class="tag">Within 2 hours</span>
-      <h3>Full recovery meal</h3>
-      <ul>
-        <li>Balanced plate: protein (chicken, fish, tofu, eggs), carbs (rice, potatoes, bread), veggies/fruit, healthy fat</li>
-        <li>This is where glycogen refilling and muscle repair really happen</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <span class="tag">Night before next session</span>
-      <h3>Don't skip the evening meal</h3>
-      <ul>
-        <li>Consistent recovery day to day matters more than any single perfect meal</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- VITAMINS -->
-  <div class="panel" id="vitamins">
-    <h2>Vitamins & Minerals for Female Athletes</h2>
-    <p>Female swimmers are at higher risk for a few specific deficiencies because of training volume, menstrual cycle losses, and sometimes under-fueling. Here's what to watch and how to work around it.</p>
-
-    <div class="card">
-      <span class="tag">Iron</span>
-      <h3>Most common deficiency in female athletes</h3>
-      <ul>
-        <li>Why: menstrual blood loss + "foot-strike" style hemolysis from hard training reduces iron stores</li>
-        <li>Signs of low iron: fatigue beyond normal, poor recovery, feeling constantly flat in the water</li>
-        <li>Food sources: red meat, poultry, beans, lentils, spinach, fortified cereal</li>
-        <li>Work-around: pair plant iron sources with vitamin C (citrus, peppers) to boost absorption; avoid tea/coffee right with iron-rich meals since it blocks uptake</li>
-        <li>Get ferritin checked with a doctor if fatigue is unexplained — don't self-supplement iron without a blood test, too much is harmful</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <span class="tag">Calcium & Vitamin D</span>
-      <h3>Bone health duo</h3>
-      <ul>
-        <li>Why it matters: swimming is non-weight-bearing, so it doesn't build bone density the way running does — bone health has to come from nutrition</li>
-        <li>Food sources for calcium: dairy, fortified plant milk, tofu, leafy greens, almonds</li>
-        <li>Vitamin D: sunlight exposure, fatty fish, egg yolks, fortified foods — indoor pool athletes often run low, worth checking levels</li>
-        <li>Together they protect against stress fractures and support the hormonal health tied to strong training</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <span class="tag">B Vitamins</span>
-      <h3>Energy metabolism</h3>
-      <ul>
-        <li>B12 and folate support red blood cell production — extra important alongside iron</li>
-        <li>Food sources: eggs, dairy, meat, fortified cereals; B12 needs extra attention for anyone eating plant-based</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <span class="tag">Watch for: RED-S</span>
-      <h3>Relative Energy Deficiency in Sport</h3>
-      <ul>
-        <li>Happens when calorie intake doesn't match training demands — can affect periods, bone density, mood, and performance all at once</li>
-        <li>Signs: missed or irregular periods, constant fatigue, frequent injuries, mood changes</li>
-        <li>This is a "talk to a doctor or sports dietitian" flag, not a diet-tweak-at-home flag</li>
-      </ul>
-    </div>
-
-    <p style="font-size:0.85em; color:#666; margin-top:20px;">This guide is educational, not medical advice — for personalized supplement or deficiency guidance, check in with a doctor or registered sports dietitian.</p>
-  </div>
-
-  <!-- LOG -->
-  <div class="panel" id="log">
-    <h2>My Fueling Log</h2>
-    <p>Track what you're eating around training so you can spot patterns over a season.</p>
-
-    <form id="logForm">
-      <label>Date</label>
-      <input type="date" id="logDate" required>
-
-      <label>Timing</label>
-      <select id="logTiming">
-        <option>Pre-training</option>
-        <option>During training</option>
-        <option>Post-training</option>
-        <option>Pre-competition</option>
-        <option>During competition</option>
-        <option>Post-competition</option>
-      </select>
-
-      <label>What did you eat/drink?</label>
-      <input type="text" id="logFood" placeholder="e.g. banana + oatmeal + water" required>
-
-      <label>How did you feel? (energy, stomach, etc.)</label>
-      <textarea id="logNotes" rows="2" placeholder="optional"></textarea>
-
-      <button type="submit">Add Entry</button>
-    </form>
-
-    <h3>History</h3>
-    <div id="logHistory"></div>
-  </div>
+    <p class="disclaimer">
+      Off The Block is an educational resource, not medical or clinical advice. Nutrition needs vary
+      with body size, training load, age, and health history. Talk to a doctor or a registered sports
+      dietitian before starting a supplement, and go to one promptly if you notice missed periods,
+      unexplained fatigue, or repeated injuries.
+    </p>
+  </section>
 
 </main>
 
-<footer>Off The Block — built by Myra 🏊‍♀️</footer>
-
-<script>
-  // Navigation
-  const buttons = document.querySelectorAll('.navbtn');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.panel).classList.add('active');
-    });
-  });
-
-  // Logging with localStorage
-  const STORAGE_KEY = 'offTheBlockLogs';
-
-  function getLogs(){
-    try{
-      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    }catch(e){
-      return [];
-    }
-  }
-
-  function saveLogs(logs){
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(logs));
-  }
-
-  function renderLogs(){
-    const logs = getLogs().sort((a,b) => new Date(b.date) - new Date(a.date));
-    const container = document.getElementById('logHistory');
-    if(logs.length === 0){
-      container.innerHTML = '<p class="empty">No entries yet — add your first one above!</p>';
-      return;
-    }
-    let html = '<table><tr><th>Date</th><th>Timing</th><th>Food/Drink</th><th>Notes</th><th></th></tr>';
-    logs.forEach(entry => {
-      html += `<tr>
-        <td>${entry.date}</td>
-        <td>${entry.timing}</td>
-        <td>${entry.food}</td>
-        <td>${entry.notes || '—'}</td>
-        <td><button class="delete-btn" data-id="${entry.id}">✕</button></td>
-      </tr>`;
-    });
-    html += '</table>';
-    container.innerHTML = html;
-
-    document.querySelectorAll('.delete-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.id;
-        const logs = getLogs().filter(l => l.id !== id);
-        saveLogs(logs);
-        renderLogs();
-      });
-    });
-  }
-
-  document.getElementById('logForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const logs = getLogs();
-    logs.push({
-      id: Date.now().toString(),
-      date: document.getElementById('logDate').value,
-      timing: document.getElementById('logTiming').value,
-      food: document.getElementById('logFood').value,
-      notes: document.getElementById('logNotes').value
-    });
-    saveLogs(logs);
-    this.reset();
-    renderLogs();
-  });
-
-  renderLogs();
-</script>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Off The Block — built by Myra Bhalla</span>
+    <span class="footer-links">
+      <a href="training.html">Training</a>
+      <a href="competition.html">Competition</a>
+      <a href="nutrients.html">Vitamins &amp; Minerals</a>
+      <a href="log.html">Log</a>
+    </span>
+  </div>
+</footer>
 
 </body>
 </html>
