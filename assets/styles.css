@@ -57,7 +57,10 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
@@ -158,7 +161,7 @@ main { padding-bottom: 90px; }
   grid-template-columns: 1.02fr 1fr;
   align-items: center;
   gap: 56px;
-  padding: 78px 0 64px;
+  padding-block: 78px 64px;
 }
 
 .eyebrow {
@@ -310,7 +313,7 @@ main { padding-bottom: 90px; }
 /* ---------- Page header (interior pages) ---------- */
 
 .page-head {
-  padding: 62px 0 34px;
+  padding-block: 62px 34px;
   border-bottom: 2px solid var(--navy-900);
   margin-bottom: 48px;
 }
@@ -916,26 +919,66 @@ input::placeholder, textarea::placeholder { color: rgba(61, 95, 137, 0.7); }
   .hero {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 52px 0 48px;
+    padding-block: 52px 48px;
   }
   .purpose-grid { grid-template-columns: 1fr; gap: 18px; }
+
+  /* Entry: the tag and the phase sit on one line rather than stacking. */
   .entry { grid-template-columns: 1fr; gap: 12px; }
+  .entry-when { flex-direction: row; align-items: center; gap: 10px; }
   .entry-remove { justify-self: start; margin-left: -11px; }
 }
 
 @media (max-width: 720px) {
   body { font-size: 16px; }
   .wrap { padding: 0 18px; }
+
+  /* Header stacks into two clearly separated rows: brand, then the nav rail. */
   .site-header .wrap {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding-top: 12px;
-    padding-bottom: 6px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-height: 0;
+    padding-top: 16px;
+    padding-bottom: 10px;
   }
-  .site-nav { padding-bottom: 8px; }
+
+  /* The rail bleeds to both screen edges so it reads as a scrollable strip,
+     while its first and last pills stay aligned with the page text. */
+  .site-nav {
+    gap: 6px;
+    margin: 0 -18px;
+    padding: 11px 18px 3px;
+    border-top: 1px solid var(--line);
+  }
+
+  .site-nav a { padding: 10px 15px; }
+
+  /* Compact items stay in a grid instead of becoming one long stack. */
+  .stat-row { grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 30px 0 24px; }
+  .field-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .field-grid .field-wide { grid-column: 1 / -1; }
+  .card-grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+
+  /* 16px inputs stop iOS zooming the page when a field takes focus. */
+  input, select, textarea { font-size: 16px; }
+
+  .hero { padding-block: 38px 42px; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .page-head { padding-block: 40px 26px; margin-bottom: 34px; }
+  .sections { padding-top: 44px; }
+  .block { margin-bottom: 54px; }
+  .sub { margin: 38px 0 18px; }
   .card { padding: 20px 20px 22px; }
   .form-card { padding: 22px 20px 24px; }
   .timeline { padding-left: 26px; }
   .timeline > li::before { left: -26px; }
+
+  .log-toolbar { align-items: flex-start; gap: 14px; }
+  .site-footer .wrap { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
+
+@media (max-width: 460px) {
+  /* Below this the two-up card grid gets too narrow to read, so it drops to one. */
+  .card-grid { grid-template-columns: 1fr; }
 }
