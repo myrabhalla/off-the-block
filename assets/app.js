@@ -188,10 +188,10 @@
     var box = el('div', 'empty-state');
     box.innerHTML =
       '<svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true">' +
-      '<path d="M4 32c5-4.5 9.5-4.5 14.5 0S28 36.5 33 32s9.5-4.5 15 0" stroke="#63a5f2" stroke-width="2.6" stroke-linecap="round"/>' +
-      '<path d="M4 42c5-4.5 9.5-4.5 14.5 0S28 46.5 33 42s9.5-4.5 15 0" stroke="#2f6fe0" stroke-width="2.6" stroke-linecap="round"/>' +
-      '<circle cx="33" cy="14" r="6" stroke="#8ed6ef" stroke-width="2.6"/>' +
-      '<path d="M9 24c7-5.5 15-5.5 22 0" stroke="#8ed6ef" stroke-width="2.6" stroke-linecap="round"/></svg>';
+      '<path d="M4 32c5-4.5 9.5-4.5 14.5 0S28 36.5 33 32s9.5-4.5 15 0" stroke="#2b8ad4" stroke-width="2.8" stroke-linecap="round"/>' +
+      '<path d="M4 42c5-4.5 9.5-4.5 14.5 0S28 46.5 33 42s9.5-4.5 15 0" stroke="#0b2a52" stroke-width="2.8" stroke-linecap="round"/>' +
+      '<circle cx="33" cy="14" r="6" stroke="#f26b3a" stroke-width="2.8"/>' +
+      '<path d="M9 24c7-5.5 15-5.5 22 0" stroke="#2b8ad4" stroke-width="2.8" stroke-linecap="round"/></svg>';
     box.appendChild(el('p', 'empty-title', 'Nothing logged yet'));
     box.appendChild(el('p', null, 'Add your first entry above. A week of entries is usually enough to start seeing patterns.'));
     return box;
