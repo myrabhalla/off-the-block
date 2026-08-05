@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" role="img" aria-labelledby="comTitle comDesc">
+  <title id="comTitle">A squad training side by side in adjacent lanes</title>
+  <desc id="comDesc">An overhead view of four lanes of a pool separated by beaded lane ropes. A swimmer is mid-freestyle-stroke in each lane, wearing a different coloured cap, all travelling the same way and throwing up white foam.</desc>
+
+  <defs>
+    <linearGradient id="cl-water" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#57b0f4"/>
+      <stop offset="0.5" stop-color="#3d97e8"/>
+      <stop offset="1" stop-color="#2278cd"/>
+    </linearGradient>
+
+    <filter id="cl-brush" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.019" numOctaves="2" seed="14" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <filter id="cl-fine" x="-14%" y="-14%" width="128%" height="128%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <filter id="cl-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+
+    <!-- One swimmer, drawn once. The cap takes its colour from each use. -->
+    <g id="cl-swimmer">
+      <ellipse cx="-70" cy="4" rx="120" ry="30" fill="#bfe6ff" opacity="0.2" filter="url(#cl-soft)"/>
+
+      <g filter="url(#cl-fine)" fill="#ffffff">
+        <ellipse cx="-196" cy="-2" rx="30" ry="10" opacity="0.28"/>
+        <ellipse cx="-238" cy="6" rx="20" ry="8" opacity="0.18"/>
+      </g>
+
+      <g filter="url(#cl-fine)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- legs, mid-kick -->
+        <path d="M-96 -9L-140 -16L-176 -23" stroke="#e0a87f" stroke-width="15"/>
+        <path d="M-96 9L-140 18L-174 27" stroke="#e8b78e" stroke-width="15"/>
+        <!-- torso in a dark suit -->
+        <path d="M-92 0L-32 0" stroke="#0a2247" stroke-width="36"/>
+        <path d="M-84 0L-40 0" stroke="#123163" stroke-width="20" opacity="0.55"/>
+        <!-- recovering arm, elbow high over the water -->
+        <path d="M-34 13L-64 34L-96 41" stroke="#e8b78e" stroke-width="13"/>
+        <!-- lead arm, reaching into the catch -->
+        <path d="M-30 -12L14 -19L58 -27" stroke="#e8b78e" stroke-width="13"/>
+      </g>
+
+      <g filter="url(#cl-fine)">
+        <circle cx="-6" cy="2" r="16" fill="currentColor"/>
+        <path d="M-17 -9a16 16 0 0 1 21 2a16 16 0 0 0-21-2z" fill="#ffc7ab" opacity="0.95"/>
+        <circle cx="3" cy="8" r="4.5" fill="#0a2247" opacity="0.5"/>
+      </g>
+
+      <g filter="url(#cl-fine)" fill="#ffffff">
+        <ellipse cx="68" cy="-30" rx="16" ry="8" opacity="0.85"/>
+        <circle cx="86" cy="-38" r="6" opacity="0.55"/>
+        <ellipse cx="-104" cy="44" rx="14" ry="8" opacity="0.7"/>
+        <ellipse cx="-184" cy="-28" rx="17" ry="8" opacity="0.6"/>
+        <ellipse cx="-182" cy="32" rx="15" ry="8" opacity="0.55"/>
+      </g>
+    </g>
+  </defs>
+
+  <!-- water -->
+  <rect width="800" height="360" fill="url(#cl-water)"/>
+
+  <g filter="url(#cl-brush)">
+    <path d="M-40 20C140 -2 300 46 460 18s240-8 380 10v76C660 128 500 84 340 106S60 140-40 112z" fill="#6cbcf7" opacity="0.2"/>
+    <path d="M-40 268c170-28 320 32 500 8s180 6 380 26v98H-40z" fill="#1b62b8" opacity="0.24"/>
+  </g>
+
+  <g filter="url(#cl-fine)" fill="none" stroke="#eaf7ff" stroke-linecap="round">
+    <path d="M50 46c70-12 120 10 190 0s120-16 190-4" stroke-width="4" opacity="0.22"/>
+    <path d="M420 232c80-12 150 10 230 0" stroke-width="4" opacity="0.2"/>
+    <path d="M60 320c90-14 150 10 240 0s150-14 230-4" stroke-width="4" opacity="0.18"/>
+  </g>
+
+  <!-- lane ropes -->
+  <g filter="url(#cl-fine)" fill="none" stroke-linecap="butt" stroke-width="13">
+    <path d="M-20 4h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+    <path d="M-20 4h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+    <path d="M-20 92h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+    <path d="M-20 92h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+    <path d="M-20 180h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+    <path d="M-20 180h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+    <path d="M-20 268h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+    <path d="M-20 268h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+    <path d="M-20 356h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+    <path d="M-20 356h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+  </g>
+
+  <!-- the squad: same set, slightly different places in it -->
+  <use href="#cl-swimmer" x="0" y="0" transform="translate(618 48)" color="#f26b3a"/>
+  <use href="#cl-swimmer" x="0" y="0" transform="translate(486 136)" color="#ffffff"/>
+  <use href="#cl-swimmer" x="0" y="0" transform="translate(660 224)" color="#f8dc7c"/>
+  <use href="#cl-swimmer" x="0" y="0" transform="translate(536 312)" color="#8fcbf5"/>
+</svg>

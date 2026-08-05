@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" role="img" aria-labelledby="ironTitle ironDesc">
+  <title id="ironTitle">Iron-rich foods, paired with vitamin C</title>
+  <desc id="ironDesc">A flat-lay illustration of iron sources: a bowl of lentils, spinach leaves, red meat, pumpkin seeds and tofu, laid out beside half an orange and a glass of orange juice — the vitamin C that helps plant iron absorb.</desc>
+
+  <defs>
+    <filter id="ir-fine" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="17" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="ir-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="360" fill="#e3f4fe"/>
+
+  <g filter="url(#ir-fine)" opacity="0.5">
+    <path d="M-20 76c170-24 300 28 480 4s200 6 360 24" fill="none" stroke="#cfeafd" stroke-width="28"/>
+    <path d="M-20 292c180-22 320 26 500 2s180 8 360 26" fill="none" stroke="#cfeafd" stroke-width="26"/>
+  </g>
+
+  <!-- bowl of lentils -->
+  <g>
+    <ellipse cx="196" cy="192" rx="98" ry="96" fill="#0b2a52" opacity="0.14" filter="url(#ir-soft)"/>
+    <g filter="url(#ir-fine)">
+      <circle cx="190" cy="184" r="94" fill="#ffffff" stroke="#0b2a52" stroke-width="4"/>
+      <circle cx="190" cy="184" r="74" fill="#d1703c"/>
+      <circle cx="190" cy="184" r="74" fill="#b85c2e" opacity="0.35"/>
+      <!-- individual lentils, so it reads as pulses rather than soup -->
+      <g fill="#e08a4e">
+        <ellipse cx="158" cy="152" rx="11" ry="8" transform="rotate(18 158 152)"/>
+        <ellipse cx="206" cy="140" rx="11" ry="8" transform="rotate(-22 206 140)"/>
+        <ellipse cx="238" cy="176" rx="11" ry="8" transform="rotate(8 238 176)"/>
+        <ellipse cx="182" cy="196" rx="11" ry="8" transform="rotate(-6 182 196)"/>
+        <ellipse cx="216" cy="220" rx="11" ry="8" transform="rotate(26 216 220)"/>
+        <ellipse cx="150" cy="212" rx="11" ry="8" transform="rotate(-30 150 212)"/>
+        <ellipse cx="126" cy="178" rx="10" ry="7" transform="rotate(12 126 178)"/>
+        <ellipse cx="196" cy="118" rx="10" ry="7" transform="rotate(-12 196 118)"/>
+      </g>
+      <!-- tomato through the lentils: acidity plus a little more vitamin C -->
+      <g fill="#cf4238">
+        <circle cx="230" cy="146" r="12"/>
+        <circle cx="160" cy="234" r="10"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- spinach leaves -->
+  <g filter="url(#ir-fine)">
+    <g transform="translate(352 96) rotate(-18)">
+      <path d="M0 0c40-30 84-24 96 8c12 32-24 60-64 52C4 54-16 30 0 0z" fill="#2f7a45" stroke="#1e5730" stroke-width="3.5"/>
+      <path d="M8 22c30-12 60-10 84 4" fill="none" stroke="#8fce9d" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    </g>
+    <g transform="translate(330 172) rotate(14)">
+      <path d="M0 0c34-26 72-20 82 7c10 27-20 51-54 44C2 46-14 26 0 0z" fill="#3a8c50" stroke="#1e5730" stroke-width="3.5"/>
+      <path d="M8 18c26-10 52-8 72 4" fill="none" stroke="#8fce9d" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- red meat, sliced -->
+  <g filter="url(#ir-fine)">
+    <g transform="translate(438 48)">
+      <path d="M0 30C4 6 34-6 66 2c34 8 54 30 48 54c-6 24-40 34-74 26C10 74-4 54 0 30z" fill="#b0424a" stroke="#0b2a52" stroke-width="4"/>
+      <path d="M22 26c22-8 44-6 62 8" fill="none" stroke="#d9737a" stroke-width="7" stroke-linecap="round"/>
+      <path d="M16 52c24-6 48-2 68 12" fill="none" stroke="#d9737a" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+      <path d="M4 22C0 6 14-4 26 0" fill="none" stroke="#f2e4d0" stroke-width="9" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- tofu cubes -->
+  <g filter="url(#ir-fine)">
+    <rect x="470" y="196" width="52" height="46" rx="10" fill="#f6f1e2" stroke="#0b2a52" stroke-width="3.5"/>
+    <rect x="516" y="238" width="46" height="42" rx="10" fill="#efe8d4" stroke="#0b2a52" stroke-width="3.5"/>
+    <rect x="432" y="252" width="44" height="40" rx="10" fill="#f6f1e2" stroke="#0b2a52" stroke-width="3.5"/>
+  </g>
+
+  <!-- half an orange: the vitamin C that unlocks the plant iron -->
+  <g>
+    <ellipse cx="676" cy="130" rx="72" ry="70" fill="#0b2a52" opacity="0.13" filter="url(#ir-soft)"/>
+    <g filter="url(#ir-fine)">
+      <circle cx="670" cy="122" r="68" fill="#f26b3a" stroke="#0b2a52" stroke-width="4"/>
+      <circle cx="670" cy="122" r="56" fill="#ffb27a"/>
+      <circle cx="670" cy="122" r="50" fill="#ff9550"/>
+      <!-- segments -->
+      <g stroke="#ffd9bd" stroke-width="5" stroke-linecap="round">
+        <path d="M670 122L670 74"/>
+        <path d="M670 122L704 88"/>
+        <path d="M670 122L718 122"/>
+        <path d="M670 122L704 156"/>
+        <path d="M670 122L670 170"/>
+        <path d="M670 122L636 156"/>
+        <path d="M670 122L622 122"/>
+        <path d="M670 122L636 88"/>
+      </g>
+      <circle cx="670" cy="122" r="9" fill="#ffd9bd"/>
+    </g>
+  </g>
+
+  <!-- glass of orange juice -->
+  <g>
+    <ellipse cx="676" cy="272" rx="54" ry="52" fill="#0b2a52" opacity="0.13" filter="url(#ir-soft)"/>
+    <g filter="url(#ir-fine)">
+      <circle cx="670" cy="266" r="52" fill="#ffffff" stroke="#0b2a52" stroke-width="4"/>
+      <circle cx="670" cy="266" r="38" fill="#ff9f52"/>
+      <circle cx="670" cy="266" r="38" fill="#f26b3a" opacity="0.35"/>
+      <path d="M646 252c14-8 30-8 44 0" fill="none" stroke="#ffd9bd" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- pumpkin seeds -->
+  <g filter="url(#ir-fine)" fill="#8bbf5c" stroke="#4f7a33" stroke-width="2.5">
+    <ellipse cx="344" cy="272" rx="15" ry="10" transform="rotate(24 344 272)"/>
+    <ellipse cx="382" cy="300" rx="15" ry="10" transform="rotate(-18 382 300)"/>
+    <ellipse cx="312" cy="308" rx="14" ry="9" transform="rotate(48 312 308)"/>
+    <ellipse cx="560" cy="150" rx="14" ry="9" transform="rotate(-36 560 150)"/>
+    <ellipse cx="592" cy="186" rx="14" ry="9" transform="rotate(12 592 186)"/>
+    <ellipse cx="88" cy="86" rx="14" ry="9" transform="rotate(-28 88 86)"/>
+    <ellipse cx="122" cy="60" rx="13" ry="9" transform="rotate(16 122 60)"/>
+    <ellipse cx="76" cy="296" rx="14" ry="9" transform="rotate(38 76 296)"/>
+  </g>
+</svg>

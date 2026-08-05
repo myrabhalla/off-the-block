@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" role="img" aria-labelledby="sunTitle sunDesc">
+  <title id="sunTitle">Training indoors while the sun is outside</title>
+  <desc id="sunDesc">A side view of an indoor pool hall. A low sun sits outside a band of high windows, its light angling in and fading out well above the water, where a swimmer is training — the reason indoor athletes so often run short of vitamin D.</desc>
+
+  <defs>
+    <linearGradient id="sn-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd9a8"/>
+      <stop offset="1" stop-color="#ffb27a"/>
+    </linearGradient>
+    <linearGradient id="sn-water" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#57b0f4"/>
+      <stop offset="1" stop-color="#2278cd"/>
+    </linearGradient>
+    <linearGradient id="sn-ray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffcf90" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#ffd9a8" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="sn-fine" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="31" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="sn-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <!-- the hall -->
+  <rect width="800" height="360" fill="#e3f4fe"/>
+
+  <!-- the window band, and the evening outside it -->
+  <g filter="url(#sn-fine)">
+    <rect x="-20" y="0" width="840" height="112" fill="url(#sn-sky)"/>
+    <circle cx="596" cy="70" r="38" fill="#ffffff" opacity="0.55" filter="url(#sn-soft)"/>
+    <circle cx="596" cy="70" r="26" fill="#f8b13c"/>
+
+    <!-- mullions -->
+    <g fill="#0b2a52">
+      <rect x="112" y="0" width="12" height="112"/>
+      <rect x="284" y="0" width="12" height="112"/>
+      <rect x="456" y="0" width="12" height="112"/>
+      <rect x="628" y="0" width="12" height="112"/>
+      <rect x="-20" y="104" width="840" height="14"/>
+    </g>
+  </g>
+
+  <!-- the wall the swimmers actually look at -->
+  <g filter="url(#sn-fine)">
+    <rect x="-20" y="118" width="840" height="122" fill="#cfeafd"/>
+    <!-- a lane-count board and a clock, the furniture of every pool hall -->
+    <rect x="60" y="146" width="112" height="62" rx="12" fill="#ffffff" stroke="#0b2a52" stroke-width="4"/>
+    <path d="M76 178h80M76 194h56" stroke="#8fcbf5" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <circle cx="716" cy="180" r="34" fill="#ffffff" stroke="#0b2a52" stroke-width="4"/>
+    <path d="M716 180V160M716 180l16 12" stroke="#0b2a52" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- light coming in, and stopping short of the water -->
+  <g filter="url(#sn-soft)">
+    <path d="M470 122L566 122L474 240L340 240z" fill="url(#sn-ray)"/>
+    <path d="M298 122L394 122L302 228L182 228z" fill="url(#sn-ray)"/>
+    <path d="M642 122L738 122L664 234L530 234z" fill="url(#sn-ray)"/>
+  </g>
+
+  <!-- the tiled lip of the pool -->
+  <rect x="-20" y="236" width="840" height="12" fill="#0b2a52" opacity="0.55"/>
+
+  <!-- water -->
+  <rect x="-20" y="246" width="840" height="134" fill="url(#sn-water)"/>
+
+  <g filter="url(#sn-fine)" fill="none" stroke="#eaf7ff" stroke-linecap="round">
+    <path d="M20 274c70-12 120 10 190 0s120-16 190-4" stroke-width="5" opacity="0.24"/>
+    <path d="M420 306c80-12 150 10 230 0" stroke-width="5" opacity="0.2"/>
+    <path d="M60 344c90-14 150 10 240 0s150-14 230-4" stroke-width="4" opacity="0.18"/>
+  </g>
+
+  <!-- a lane rope running the length of the shot -->
+  <g filter="url(#sn-fine)" fill="none" stroke-linecap="butt" stroke-width="12">
+    <path d="M-20 264h840" stroke="#ffffff" stroke-dasharray="20 20"/>
+    <path d="M-20 264h840" stroke="#f26b3a" stroke-dasharray="20 20" stroke-dashoffset="20"/>
+  </g>
+
+  <!-- a swimmer, still working -->
+  <g transform="translate(430 318)">
+    <ellipse cx="-70" cy="0" rx="112" ry="26" fill="#bfe6ff" opacity="0.2" filter="url(#sn-soft)"/>
+
+    <g filter="url(#sn-fine)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-92 -8L-134 -15L-168 -21" stroke="#e0a87f" stroke-width="14"/>
+      <path d="M-92 8L-134 17L-166 25" stroke="#e8b78e" stroke-width="14"/>
+      <path d="M-88 0L-30 0" stroke="#0a2247" stroke-width="34"/>
+      <path d="M-80 0L-38 0" stroke="#123163" stroke-width="19" opacity="0.55"/>
+      <path d="M-32 12L-60 32L-90 39" stroke="#e8b78e" stroke-width="12"/>
+      <path d="M-28 -11L14 -18L56 -25" stroke="#e8b78e" stroke-width="12"/>
+    </g>
+
+    <g filter="url(#sn-fine)">
+      <circle cx="-6" cy="2" r="15" fill="#f26b3a"/>
+      <path d="M-16 -8a15 15 0 0 1 20 2a15 15 0 0 0-20-2z" fill="#ffc7ab" opacity="0.95"/>
+      <circle cx="2" cy="7" r="4" fill="#0a2247" opacity="0.5"/>
+    </g>
+
+    <g filter="url(#sn-fine)" fill="#ffffff">
+      <ellipse cx="66" cy="-28" rx="15" ry="7" opacity="0.8"/>
+      <circle cx="82" cy="-36" r="6" opacity="0.5"/>
+      <ellipse cx="-98" cy="42" rx="13" ry="7" opacity="0.65"/>
+      <ellipse cx="-176" cy="-26" rx="16" ry="8" opacity="0.6"/>
+    </g>
+  </g>
+</svg>
