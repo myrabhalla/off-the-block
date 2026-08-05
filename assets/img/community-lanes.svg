@@ -9,54 +9,62 @@
       <stop offset="1" stop-color="#2278cd"/>
     </linearGradient>
 
-    <filter id="cl-brush" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.019" numOctaves="2" seed="14" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
+    <!--
+      One swimmer, drawn once; the cap takes its colour from each use.
+      Every limb is drawn twice: a wider navy stroke for the contour, then the
+      skin or suit colour on top. Drawing them back to front means a nearer limb
+      covers the outline of the one behind it, which is what gives the figure
+      readable edges instead of a soft blob.
+    -->
+    <g id="cl-swimmer" stroke-linecap="round" stroke-linejoin="round">
 
-    <filter id="cl-fine" x="-14%" y="-14%" width="128%" height="128%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="2" seed="7" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-
-    <filter id="cl-soft" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="7"/>
-    </filter>
-
-    <!-- One swimmer, drawn once. The cap takes its colour from each use. -->
-    <g id="cl-swimmer">
-      <ellipse cx="-70" cy="4" rx="120" ry="30" fill="#bfe6ff" opacity="0.2" filter="url(#cl-soft)"/>
-
-      <g filter="url(#cl-fine)" fill="#ffffff">
-        <ellipse cx="-196" cy="-2" rx="30" ry="10" opacity="0.28"/>
-        <ellipse cx="-238" cy="6" rx="20" ry="8" opacity="0.18"/>
+      <!-- the wake she is dragging: crisp bubbles, no blur -->
+      <g fill="#eaf7ff" stroke="#2278cd" stroke-width="2.5" opacity="0.9">
+        <ellipse cx="-196" cy="-2" rx="26" ry="10"/>
+        <ellipse cx="-240" cy="8" rx="17" ry="7.5"/>
+        <circle cx="-268" cy="-6" r="7"/>
       </g>
 
-      <g filter="url(#cl-fine)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <!-- legs, mid-kick -->
+      <!-- legs, mid-kick -->
+      <g fill="none">
+        <path d="M-96 -9L-140 -16L-176 -23" stroke="#0b2a52" stroke-width="22"/>
+        <path d="M-96 9L-140 18L-174 27" stroke="#0b2a52" stroke-width="22"/>
         <path d="M-96 -9L-140 -16L-176 -23" stroke="#e0a87f" stroke-width="15"/>
         <path d="M-96 9L-140 18L-174 27" stroke="#e8b78e" stroke-width="15"/>
-        <!-- torso in a dark suit -->
-        <path d="M-92 0L-32 0" stroke="#0a2247" stroke-width="36"/>
-        <path d="M-84 0L-40 0" stroke="#123163" stroke-width="20" opacity="0.55"/>
-        <!-- recovering arm, elbow high over the water -->
-        <path d="M-34 13L-64 34L-96 41" stroke="#e8b78e" stroke-width="13"/>
-        <!-- lead arm, reaching into the catch -->
-        <path d="M-30 -12L14 -19L58 -27" stroke="#e8b78e" stroke-width="13"/>
+      </g>
+      <!-- feet, pointed -->
+      <g stroke="#0b2a52" stroke-width="3.5">
+        <ellipse cx="-187" cy="-25" rx="13" ry="7.5" fill="#e0a87f" transform="rotate(11 -187 -25)"/>
+        <ellipse cx="-185" cy="30" rx="13" ry="7.5" fill="#e8b78e" transform="rotate(-15 -185 30)"/>
       </g>
 
-      <g filter="url(#cl-fine)">
-        <circle cx="-6" cy="2" r="16" fill="currentColor"/>
-        <path d="M-17 -9a16 16 0 0 1 21 2a16 16 0 0 0-21-2z" fill="#ffc7ab" opacity="0.95"/>
-        <circle cx="3" cy="8" r="4.5" fill="#0a2247" opacity="0.5"/>
-      </g>
+      <!-- torso in a dark racing suit -->
+      <path d="M-92 0L-32 0" fill="none" stroke="#0b2a52" stroke-width="43"/>
+      <path d="M-92 0L-32 0" fill="none" stroke="#0a2247" stroke-width="36"/>
+      <path d="M-84 0L-42 0" fill="none" stroke="#1c4585" stroke-width="18"/>
 
-      <g filter="url(#cl-fine)" fill="#ffffff">
-        <ellipse cx="68" cy="-30" rx="16" ry="8" opacity="0.85"/>
-        <circle cx="86" cy="-38" r="6" opacity="0.55"/>
-        <ellipse cx="-104" cy="44" rx="14" ry="8" opacity="0.7"/>
-        <ellipse cx="-184" cy="-28" rx="17" ry="8" opacity="0.6"/>
-        <ellipse cx="-182" cy="32" rx="15" ry="8" opacity="0.55"/>
+      <!-- lead arm, reaching into the catch -->
+      <path d="M-30 -12L14 -19L58 -27" fill="none" stroke="#0b2a52" stroke-width="20"/>
+      <path d="M-30 -12L14 -19L58 -27" fill="none" stroke="#e8b78e" stroke-width="13"/>
+      <ellipse cx="68" cy="-29" rx="11" ry="7.5" fill="#e8b78e" stroke="#0b2a52" stroke-width="3.5" transform="rotate(-10 68 -29)"/>
+
+      <!-- recovering arm, elbow high over the water -->
+      <path d="M-34 13L-64 34L-96 41" fill="none" stroke="#0b2a52" stroke-width="20"/>
+      <path d="M-34 13L-64 34L-96 41" fill="none" stroke="#e8b78e" stroke-width="13"/>
+      <ellipse cx="-106" cy="43" rx="10.5" ry="7" fill="#e8b78e" stroke="#0b2a52" stroke-width="3.5" transform="rotate(-12 -106 43)"/>
+
+      <!-- head: cap, the sliver of face turning to breathe, goggle strap -->
+      <circle cx="-6" cy="2" r="16" fill="currentColor" stroke="#0b2a52" stroke-width="3.5"/>
+      <path d="M-18 -7a16 16 0 0 1 23 3a16 16 0 0 0-23-3z" fill="#ffc7ab" stroke="#0b2a52" stroke-width="2.5"/>
+      <path d="M-21 5a16 16 0 0 0 30 0" fill="none" stroke="#0b2a52" stroke-width="3" opacity="0.75"/>
+
+      <!-- foam off the hands and the kick -->
+      <g fill="#ffffff" stroke="#2278cd" stroke-width="2.5">
+        <ellipse cx="72" cy="-42" rx="15" ry="8"/>
+        <circle cx="92" cy="-50" r="6.5"/>
+        <ellipse cx="-112" cy="56" rx="13" ry="7.5"/>
+        <ellipse cx="-190" cy="-42" rx="15" ry="7.5"/>
+        <ellipse cx="-188" cy="46" rx="13" ry="7"/>
       </g>
     </g>
   </defs>
@@ -64,34 +72,41 @@
   <!-- water -->
   <rect width="800" height="360" fill="url(#cl-water)"/>
 
-  <g filter="url(#cl-brush)">
+  <g>
     <path d="M-40 20C140 -2 300 46 460 18s240-8 380 10v76C660 128 500 84 340 106S60 140-40 112z" fill="#6cbcf7" opacity="0.2"/>
     <path d="M-40 268c170-28 320 32 500 8s180 6 380 26v98H-40z" fill="#1b62b8" opacity="0.24"/>
   </g>
 
-  <g filter="url(#cl-fine)" fill="none" stroke="#eaf7ff" stroke-linecap="round">
-    <path d="M50 46c70-12 120 10 190 0s120-16 190-4" stroke-width="4" opacity="0.22"/>
-    <path d="M420 232c80-12 150 10 230 0" stroke-width="4" opacity="0.2"/>
-    <path d="M60 320c90-14 150 10 240 0s150-14 230-4" stroke-width="4" opacity="0.18"/>
+  <!-- sunlight caustics -->
+  <g fill="none" stroke="#eaf7ff" stroke-linecap="round">
+    <path d="M50 46c70-12 120 10 190 0s120-16 190-4" stroke-width="4" opacity="0.3"/>
+    <path d="M420 232c80-12 150 10 230 0" stroke-width="4" opacity="0.28"/>
+    <path d="M60 320c90-14 150 10 240 0s150-14 230-4" stroke-width="4" opacity="0.24"/>
   </g>
 
-  <!-- lane ropes -->
-  <g filter="url(#cl-fine)" fill="none" stroke-linecap="butt" stroke-width="13">
-    <path d="M-20 4h840" stroke="#ffffff" stroke-dasharray="22 22"/>
-    <path d="M-20 4h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
-    <path d="M-20 92h840" stroke="#ffffff" stroke-dasharray="22 22"/>
-    <path d="M-20 92h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
-    <path d="M-20 180h840" stroke="#ffffff" stroke-dasharray="22 22"/>
-    <path d="M-20 180h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
-    <path d="M-20 268h840" stroke="#ffffff" stroke-dasharray="22 22"/>
-    <path d="M-20 268h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
-    <path d="M-20 356h840" stroke="#ffffff" stroke-dasharray="22 22"/>
-    <path d="M-20 356h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+  <!-- lane ropes: navy keel line, then the alternating beads on top -->
+  <g fill="none" stroke-linecap="butt">
+    <g stroke="#0b2a52" stroke-width="17" opacity="0.35">
+      <path d="M-20 4h840"/><path d="M-20 92h840"/><path d="M-20 180h840"/>
+      <path d="M-20 268h840"/><path d="M-20 356h840"/>
+    </g>
+    <g stroke-width="13">
+      <path d="M-20 4h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+      <path d="M-20 4h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+      <path d="M-20 92h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+      <path d="M-20 92h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+      <path d="M-20 180h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+      <path d="M-20 180h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+      <path d="M-20 268h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+      <path d="M-20 268h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+      <path d="M-20 356h840" stroke="#ffffff" stroke-dasharray="22 22"/>
+      <path d="M-20 356h840" stroke="#f26b3a" stroke-dasharray="22 22" stroke-dashoffset="22"/>
+    </g>
   </g>
 
   <!-- the squad: same set, slightly different places in it -->
-  <use href="#cl-swimmer" x="0" y="0" transform="translate(618 48)" color="#f26b3a"/>
-  <use href="#cl-swimmer" x="0" y="0" transform="translate(486 136)" color="#ffffff"/>
-  <use href="#cl-swimmer" x="0" y="0" transform="translate(660 224)" color="#f8dc7c"/>
-  <use href="#cl-swimmer" x="0" y="0" transform="translate(536 312)" color="#8fcbf5"/>
+  <use href="#cl-swimmer" transform="translate(618 48)" color="#f26b3a"/>
+  <use href="#cl-swimmer" transform="translate(486 136)" color="#ffffff"/>
+  <use href="#cl-swimmer" transform="translate(660 224)" color="#f8dc7c"/>
+  <use href="#cl-swimmer" transform="translate(536 312)" color="#8fcbf5"/>
 </svg>

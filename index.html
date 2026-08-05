@@ -29,6 +29,7 @@
       <a href="competition.html">Competition</a>
       <a href="nutrients.html">Vitamins &amp; Minerals</a>
       <a href="log.html">Fueling Log</a>
+      <a href="community.html">Community</a>
     </nav>
   </div>
 </header>
@@ -63,33 +64,19 @@
             <stop offset="1" stop-color="#2278cd"/>
           </linearGradient>
 
-          <!-- A light wobble: enough to soften a vector edge, not enough to blur it. -->
-          <filter id="brush" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.019" numOctaves="2" seed="12" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-
-          <filter id="brushFine" x="-12%" y="-12%" width="124%" height="124%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="2" seed="5" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-
-          <filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
-            <feGaussianBlur stdDeviation="10"/>
-          </filter>
         </defs>
 
         <!-- ---------- water ---------- -->
         <rect width="800" height="520" fill="url(#deep)"/>
 
         <!-- broad painted patches, kept faint so they never fight the figure -->
-        <g filter="url(#brush)">
+        <g>
           <path d="M-40 30C150 6 320 60 470 26s250-10 400 14v110C700 176 520 124 350 152S60 196-40 160z" fill="#6cbcf7" opacity="0.24"/>
           <path d="M-40 400C160 364 340 428 500 400s230 8 380 34v126H-40z" fill="#1b62b8" opacity="0.28"/>
         </g>
 
         <!-- sunlight caustics -->
-        <g filter="url(#brushFine)" fill="none" stroke="#eaf7ff" stroke-linecap="round">
+        <g fill="none" stroke="#eaf7ff" stroke-linecap="round">
           <path d="M60 62c60-14 110 10 170 0s110-18 170-6" stroke-width="5" opacity="0.28"/>
           <path d="M430 92c70-12 130 12 200 2" stroke-width="4" opacity="0.22"/>
           <path d="M40 188c80-16 140 12 220 2s140-20 210-6" stroke-width="5" opacity="0.2"/>
@@ -98,7 +85,7 @@
         </g>
 
         <!-- ---------- lane ropes: white and coral beads ---------- -->
-        <g filter="url(#brushFine)" stroke-linecap="butt" fill="none">
+        <g stroke-linecap="butt" fill="none">
           <path d="M-20 118h840" stroke="#0f3c8e" stroke-width="18" opacity="0.28"/>
           <path d="M-20 110h840" stroke="#ffffff" stroke-width="18" stroke-dasharray="30 30"/>
           <path d="M-20 110h840" stroke="#f26b3a" stroke-width="18" stroke-dasharray="30 30" stroke-dashoffset="30"/>
@@ -110,63 +97,77 @@
 
         <!-- ---------- the swimmer, alone in the middle lane ---------- -->
 
-        <!-- a pale halo of disturbed water, so the figure separates from the lane -->
-        <ellipse cx="400" cy="278" rx="230" ry="78" fill="#bfe6ff" opacity="0.22" filter="url(#softShadow)"/>
+        <!--
+          Every limb is stroked twice — a wider navy contour, then the skin or
+          suit colour laid over it — and the parts are drawn back to front, so a
+          nearer limb crops the outline of the one behind it. That, rather than
+          any filter, is what gives the figure a readable edge. SVG filters are
+          rasterised before they reach the screen, so anything wrapped in one
+          stops being crisp vector art; there are none left in this drawing.
+        -->
 
-        <!-- her shadow on the floor of the pool, thrown down and slightly behind -->
-        <g filter="url(#softShadow)" opacity="0.26">
-          <path d="M250 302L360 296L470 292" stroke="#0a2247" stroke-width="54" fill="none" stroke-linecap="round"/>
-        </g>
+        <!-- a pale patch of disturbed water, so the figure separates from the lane -->
+        <ellipse cx="400" cy="278" rx="222" ry="72" fill="#bfe6ff" opacity="0.18"/>
+
+        <!-- her shadow, kept under the torso so it never reads as a smudge -->
+        <path d="M300 306L448 300" stroke="#0a2247" stroke-width="52" fill="none" stroke-linecap="round" opacity="0.2"/>
 
         <!-- the wake she has already left behind her -->
-        <g filter="url(#brushFine)" fill="#ffffff">
-          <ellipse cx="210" cy="272" rx="48" ry="16" opacity="0.3"/>
-          <ellipse cx="146" cy="260" rx="34" ry="12" opacity="0.22"/>
-          <ellipse cx="94" cy="274" rx="24" ry="9" opacity="0.15"/>
-          <ellipse cx="54" cy="264" rx="16" ry="7" opacity="0.1"/>
+        <g fill="#eaf7ff" stroke="#2278cd" stroke-width="3" opacity="0.92">
+          <ellipse cx="206" cy="272" rx="42" ry="15"/>
+          <ellipse cx="140" cy="258" rx="30" ry="12"/>
+          <ellipse cx="88" cy="276" rx="21" ry="9"/>
+          <circle cx="48" cy="264" r="8"/>
         </g>
 
-        <!-- legs, mid-kick. Skin reads warm against the blue, so the limbs stay separate. -->
-        <g filter="url(#brushFine)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M362 258L300 246L242 236" stroke="#e0a87f" stroke-width="25"/>
-          <path d="M362 282L302 294L246 308" stroke="#e8b78e" stroke-width="25"/>
-        </g>
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <!-- legs, mid-kick -->
+          <g fill="none">
+            <path d="M362 258L300 246L242 236" stroke="#0b2a52" stroke-width="33"/>
+            <path d="M362 282L302 294L246 308" stroke="#0b2a52" stroke-width="33"/>
+            <path d="M362 258L300 246L242 236" stroke="#e0a87f" stroke-width="25"/>
+            <path d="M362 282L302 294L246 308" stroke="#e8b78e" stroke-width="25"/>
+          </g>
+          <!-- feet, toes pointed -->
+          <g stroke="#0b2a52" stroke-width="4">
+            <ellipse cx="228" cy="234" rx="18" ry="11" fill="#e0a87f" transform="rotate(-10 228 234)"/>
+            <ellipse cx="232" cy="311" rx="18" ry="11" fill="#e8b78e" transform="rotate(14 232 311)"/>
+          </g>
 
-        <!-- torso in a dark suit, hips to shoulders -->
-        <g filter="url(#brushFine)" fill="none" stroke-linecap="round">
-          <path d="M356 270L452 270" stroke="#0a2247" stroke-width="60"/>
-          <path d="M368 270L432 270" stroke="#123163" stroke-width="34" opacity="0.55"/>
-        </g>
+          <!-- torso in a dark racing suit, hips to shoulders -->
+          <path d="M356 270L452 270" fill="none" stroke="#0b2a52" stroke-width="68"/>
+          <path d="M356 270L452 270" fill="none" stroke="#0a2247" stroke-width="60"/>
+          <path d="M368 270L436 270" fill="none" stroke="#1c4585" stroke-width="30"/>
 
-        <!-- the arm sweeping back over the water, elbow high -->
-        <g filter="url(#brushFine)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M448 292L400 330L354 342" stroke="#e8b78e" stroke-width="22"/>
-        </g>
+          <!-- the arm sweeping back over the water, elbow high -->
+          <path d="M448 292L400 330L354 342" fill="none" stroke="#0b2a52" stroke-width="30"/>
+          <path d="M448 292L400 330L354 342" fill="none" stroke="#e8b78e" stroke-width="22"/>
+          <ellipse cx="338" cy="346" rx="16" ry="11" fill="#e8b78e" stroke="#0b2a52" stroke-width="4" transform="rotate(14 338 346)"/>
 
-        <!-- the lead arm, reaching forward past her head into the catch -->
-        <g filter="url(#brushFine)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M452 250L514 240L574 228" stroke="#e8b78e" stroke-width="22"/>
-        </g>
+          <!-- the lead arm, reaching forward past her head into the catch -->
+          <path d="M452 250L514 240L574 228" fill="none" stroke="#0b2a52" stroke-width="30"/>
+          <path d="M452 250L514 240L574 228" fill="none" stroke="#e8b78e" stroke-width="22"/>
+          <ellipse cx="590" cy="225" rx="17" ry="11.5" fill="#e8b78e" stroke="#0b2a52" stroke-width="4" transform="rotate(-11 590 225)"/>
 
-        <!-- head, in a coral cap -->
-        <g filter="url(#brushFine)">
-          <circle cx="496" cy="272" r="26" fill="#f26b3a"/>
-          <path d="M478 256a26 26 0 0 1 33 3a26 26 0 0 0-33-3z" fill="#ffc7ab" opacity="0.95"/>
-          <circle cx="510" cy="280" r="7" fill="#0a2247" opacity="0.55"/>
+          <!-- head in a coral cap: the sliver of face turning to breathe, and
+               the goggle strap running round the back of the cap -->
+          <circle cx="496" cy="272" r="26" fill="#f26b3a" stroke="#0b2a52" stroke-width="4.5"/>
+          <path d="M477 260a26 26 0 0 1 38 4" fill="#ffc7ab" stroke="#0b2a52" stroke-width="3"/>
+          <path d="M471 276a26 26 0 0 0 49 0" fill="none" stroke="#0b2a52" stroke-width="4" opacity="0.8"/>
         </g>
 
         <!-- foam thrown off the hands, the cap and the feet -->
-        <g filter="url(#brushFine)" fill="#ffffff">
-          <ellipse cx="588" cy="224" rx="22" ry="12" opacity="0.85"/>
-          <circle cx="612" cy="212" r="8" opacity="0.6"/>
-          <circle cx="600" cy="244" r="6" opacity="0.5"/>
-          <ellipse cx="530" cy="292" rx="26" ry="11" opacity="0.55"/>
-          <ellipse cx="342" cy="348" rx="20" ry="11" opacity="0.7"/>
-          <circle cx="318" cy="360" r="6" opacity="0.45"/>
-          <ellipse cx="228" cy="232" rx="28" ry="13" opacity="0.72"/>
-          <ellipse cx="234" cy="314" rx="24" ry="12" opacity="0.64"/>
-          <circle cx="198" cy="222" r="8" opacity="0.5"/>
-          <circle cx="204" cy="326" r="7" opacity="0.44"/>
+        <g fill="#ffffff" stroke="#2278cd" stroke-width="3">
+          <ellipse cx="596" cy="200" rx="22" ry="11"/>
+          <circle cx="624" cy="188" r="8"/>
+          <circle cx="612" cy="222" r="6.5"/>
+          <ellipse cx="536" cy="308" rx="24" ry="11"/>
+          <ellipse cx="332" cy="372" rx="20" ry="10"/>
+          <circle cx="306" cy="384" r="6.5"/>
+          <ellipse cx="216" cy="210" rx="26" ry="12"/>
+          <ellipse cx="222" cy="332" rx="23" ry="11"/>
+          <circle cx="184" cy="198" r="8"/>
+          <circle cx="192" cy="346" r="7"/>
         </g>
       </svg>
     </figure>
@@ -236,6 +237,14 @@
           and watch your own patterns build up.</p>
         <span class="go">Track your season &rarr;</span>
       </a>
+
+      <a class="card link-card" href="community.html">
+        <span class="tag tag-competition">Community</span>
+        <h3>Swimmers, coaches &amp; parents</h3>
+        <p>Sign the wall, and leave a note about what the guide changed for you, what didn't work, and
+          what it should cover next.</p>
+        <span class="go">Join and leave feedback &rarr;</span>
+      </a>
     </div>
 
     <p class="disclaimer">
@@ -256,6 +265,7 @@
       <a href="competition.html">Competition</a>
       <a href="nutrients.html">Vitamins &amp; Minerals</a>
       <a href="log.html">Log</a>
+      <a href="community.html">Community</a>
     </span>
   </div>
 </footer>

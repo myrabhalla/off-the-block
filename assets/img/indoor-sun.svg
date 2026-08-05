@@ -15,24 +15,18 @@
       <stop offset="0" stop-color="#ffcf90" stop-opacity="0.95"/>
       <stop offset="1" stop-color="#ffd9a8" stop-opacity="0"/>
     </linearGradient>
-
-    <filter id="sn-fine" x="-12%" y="-12%" width="124%" height="124%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="31" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-    <filter id="sn-soft" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="10"/>
-    </filter>
   </defs>
 
   <!-- the hall -->
   <rect width="800" height="360" fill="#e3f4fe"/>
 
   <!-- the window band, and the evening outside it -->
-  <g filter="url(#sn-fine)">
+  <g>
     <rect x="-20" y="0" width="840" height="112" fill="url(#sn-sky)"/>
-    <circle cx="596" cy="70" r="38" fill="#ffffff" opacity="0.55" filter="url(#sn-soft)"/>
-    <circle cx="596" cy="70" r="26" fill="#f8b13c"/>
+    <!-- the sun, as stacked rings rather than a blur -->
+    <circle cx="596" cy="70" r="44" fill="#ffc978" opacity="0.35"/>
+    <circle cx="596" cy="70" r="34" fill="#fabb5c" opacity="0.5"/>
+    <circle cx="596" cy="70" r="26" fill="#f8b13c" stroke="#e08a2c" stroke-width="3"/>
 
     <!-- mullions -->
     <g fill="#0b2a52">
@@ -45,7 +39,7 @@
   </g>
 
   <!-- the wall the swimmers actually look at -->
-  <g filter="url(#sn-fine)">
+  <g>
     <rect x="-20" y="118" width="840" height="122" fill="#cfeafd"/>
     <!-- a lane-count board and a clock, the furniture of every pool hall -->
     <rect x="60" y="146" width="112" height="62" rx="12" fill="#ffffff" stroke="#0b2a52" stroke-width="4"/>
@@ -54,55 +48,82 @@
     <path d="M716 180V160M716 180l16 12" stroke="#0b2a52" stroke-width="4.5" stroke-linecap="round" fill="none"/>
   </g>
 
-  <!-- light coming in, and stopping short of the water -->
-  <g filter="url(#sn-soft)">
+  <!-- light coming in, and stopping short of the water. The gradient does the
+       fading; no blur, so the shafts keep a clean edge. -->
+  <g>
     <path d="M470 122L566 122L474 240L340 240z" fill="url(#sn-ray)"/>
     <path d="M298 122L394 122L302 228L182 228z" fill="url(#sn-ray)"/>
     <path d="M642 122L738 122L664 234L530 234z" fill="url(#sn-ray)"/>
   </g>
 
   <!-- the tiled lip of the pool -->
-  <rect x="-20" y="236" width="840" height="12" fill="#0b2a52" opacity="0.55"/>
+  <rect x="-20" y="236" width="840" height="12" fill="#0b2a52" opacity="0.6"/>
 
   <!-- water -->
   <rect x="-20" y="246" width="840" height="134" fill="url(#sn-water)"/>
 
-  <g filter="url(#sn-fine)" fill="none" stroke="#eaf7ff" stroke-linecap="round">
-    <path d="M20 274c70-12 120 10 190 0s120-16 190-4" stroke-width="5" opacity="0.24"/>
-    <path d="M420 306c80-12 150 10 230 0" stroke-width="5" opacity="0.2"/>
-    <path d="M60 344c90-14 150 10 240 0s150-14 230-4" stroke-width="4" opacity="0.18"/>
+  <g fill="none" stroke="#eaf7ff" stroke-linecap="round">
+    <path d="M20 274c70-12 120 10 190 0s120-16 190-4" stroke-width="5" opacity="0.3"/>
+    <path d="M420 306c80-12 150 10 230 0" stroke-width="5" opacity="0.28"/>
+    <path d="M60 344c90-14 150 10 240 0s150-14 230-4" stroke-width="4" opacity="0.24"/>
   </g>
 
   <!-- a lane rope running the length of the shot -->
-  <g filter="url(#sn-fine)" fill="none" stroke-linecap="butt" stroke-width="12">
-    <path d="M-20 264h840" stroke="#ffffff" stroke-dasharray="20 20"/>
-    <path d="M-20 264h840" stroke="#f26b3a" stroke-dasharray="20 20" stroke-dashoffset="20"/>
+  <g fill="none" stroke-linecap="butt">
+    <path d="M-20 264h840" stroke="#0b2a52" stroke-width="16" opacity="0.35"/>
+    <g stroke-width="12">
+      <path d="M-20 264h840" stroke="#ffffff" stroke-dasharray="20 20"/>
+      <path d="M-20 264h840" stroke="#f26b3a" stroke-dasharray="20 20" stroke-dashoffset="20"/>
+    </g>
   </g>
 
-  <!-- a swimmer, still working -->
-  <g transform="translate(430 318)">
-    <ellipse cx="-70" cy="0" rx="112" ry="26" fill="#bfe6ff" opacity="0.2" filter="url(#sn-soft)"/>
+  <!-- a swimmer, still working. Same construction as the other plates: a wider
+       navy contour under each limb, parts drawn back to front. -->
+  <g transform="translate(430 306)" stroke-linecap="round" stroke-linejoin="round">
 
-    <g filter="url(#sn-fine)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g fill="#eaf7ff" stroke="#2278cd" stroke-width="2.5" opacity="0.9">
+      <ellipse cx="-188" cy="-2" rx="24" ry="9"/>
+      <circle cx="-224" cy="6" r="7"/>
+    </g>
+
+    <!-- legs, mid-kick -->
+    <g fill="none">
+      <path d="M-92 -8L-134 -15L-168 -21" stroke="#0b2a52" stroke-width="21"/>
+      <path d="M-92 8L-134 17L-166 25" stroke="#0b2a52" stroke-width="21"/>
       <path d="M-92 -8L-134 -15L-168 -21" stroke="#e0a87f" stroke-width="14"/>
       <path d="M-92 8L-134 17L-166 25" stroke="#e8b78e" stroke-width="14"/>
-      <path d="M-88 0L-30 0" stroke="#0a2247" stroke-width="34"/>
-      <path d="M-80 0L-38 0" stroke="#123163" stroke-width="19" opacity="0.55"/>
-      <path d="M-32 12L-60 32L-90 39" stroke="#e8b78e" stroke-width="12"/>
-      <path d="M-28 -11L14 -18L56 -25" stroke="#e8b78e" stroke-width="12"/>
+    </g>
+    <g stroke="#0b2a52" stroke-width="3.5">
+      <ellipse cx="-178" cy="-23" rx="12" ry="7" fill="#e0a87f" transform="rotate(10 -178 -23)"/>
+      <ellipse cx="-176" cy="28" rx="12" ry="7" fill="#e8b78e" transform="rotate(-15 -176 28)"/>
     </g>
 
-    <g filter="url(#sn-fine)">
-      <circle cx="-6" cy="2" r="15" fill="#f26b3a"/>
-      <path d="M-16 -8a15 15 0 0 1 20 2a15 15 0 0 0-20-2z" fill="#ffc7ab" opacity="0.95"/>
-      <circle cx="2" cy="7" r="4" fill="#0a2247" opacity="0.5"/>
-    </g>
+    <!-- torso in a dark suit -->
+    <path d="M-88 0L-30 0" fill="none" stroke="#0b2a52" stroke-width="41"/>
+    <path d="M-88 0L-30 0" fill="none" stroke="#0a2247" stroke-width="34"/>
+    <path d="M-80 0L-38 0" fill="none" stroke="#1c4585" stroke-width="17"/>
 
-    <g filter="url(#sn-fine)" fill="#ffffff">
-      <ellipse cx="66" cy="-28" rx="15" ry="7" opacity="0.8"/>
-      <circle cx="82" cy="-36" r="6" opacity="0.5"/>
-      <ellipse cx="-98" cy="42" rx="13" ry="7" opacity="0.65"/>
-      <ellipse cx="-176" cy="-26" rx="16" ry="8" opacity="0.6"/>
+    <!-- lead arm, reaching into the catch -->
+    <path d="M-28 -11L14 -18L56 -25" fill="none" stroke="#0b2a52" stroke-width="19"/>
+    <path d="M-28 -11L14 -18L56 -25" fill="none" stroke="#e8b78e" stroke-width="12"/>
+    <ellipse cx="66" cy="-27" rx="10.5" ry="7" fill="#e8b78e" stroke="#0b2a52" stroke-width="3.5" transform="rotate(-10 66 -27)"/>
+
+    <!-- recovering arm -->
+    <path d="M-32 12L-60 32L-90 39" fill="none" stroke="#0b2a52" stroke-width="19"/>
+    <path d="M-32 12L-60 32L-90 39" fill="none" stroke="#e8b78e" stroke-width="12"/>
+    <ellipse cx="-100" cy="41" rx="10" ry="6.5" fill="#e8b78e" stroke="#0b2a52" stroke-width="3.5" transform="rotate(-12 -100 41)"/>
+
+    <!-- head: cap, the sliver of face turning to breathe, goggle strap -->
+    <circle cx="-6" cy="2" r="15" fill="#f26b3a" stroke="#0b2a52" stroke-width="3.5"/>
+    <path d="M-17 -6a15 15 0 0 1 21 3a15 15 0 0 0-21-3z" fill="#ffc7ab" stroke="#0b2a52" stroke-width="2.5"/>
+    <path d="M-20 5a15 15 0 0 0 28 0" fill="none" stroke="#0b2a52" stroke-width="3" opacity="0.75"/>
+
+    <!-- foam off the hands and the kick -->
+    <g fill="#ffffff" stroke="#2278cd" stroke-width="2.5">
+      <ellipse cx="70" cy="-40" rx="14" ry="7"/>
+      <circle cx="88" cy="-48" r="6"/>
+      <ellipse cx="-106" cy="44" rx="12" ry="7"/>
+      <ellipse cx="-182" cy="-38" rx="14" ry="7"/>
     </g>
   </g>
 </svg>
