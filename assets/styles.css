@@ -908,6 +908,293 @@ input::placeholder, textarea::placeholder { color: rgba(61, 95, 137, 0.7); }
 
 .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
 
+/* ---------- Fact bubbles: one number, one line ---------- */
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(212px, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+
+/* The clipped bottom-left corner gives the box a spoken, hand-placed feel. */
+.fact {
+  background: #ffffff;
+  border: 2px solid var(--navy-900);
+  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 8px;
+  padding: 18px 20px 17px;
+  box-shadow: var(--shadow-sm);
+}
+
+.fact-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.15rem;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: var(--coral-600);
+}
+
+.fact-text {
+  margin: 7px 0 0;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.fact-text strong { color: var(--navy-900); font-weight: 700; }
+
+.fact-source {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.fact-alt { background: var(--sky-100); }
+.fact-alt .fact-num { color: var(--navy-700); }
+
+.fact-warn { background: var(--amber-tint); border-color: var(--amber-ink); }
+.fact-warn .fact-num { color: var(--amber-ink); }
+
+/* ---------- Info bubbles: a title and a short explanation ---------- */
+
+.bubble-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.info-bubble {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 21px 19px;
+  box-shadow: var(--shadow-md);
+}
+
+/* A small tail, drawn as a rotated square tucked under the bottom edge. */
+.info-bubble::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transform: rotate(45deg);
+  border-bottom-right-radius: 3px;
+}
+
+.info-bubble h4 {
+  margin: 9px 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  color: var(--navy-900);
+}
+
+.info-bubble p {
+  margin: 0 0 9px;
+  font-size: 0.94rem;
+  color: var(--text-soft);
+}
+
+.info-bubble p:last-child { margin-bottom: 0; }
+.info-bubble strong { color: var(--navy-900); font-weight: 700; }
+.info-bubble a { color: var(--coral-ink); font-weight: 700; }
+
+.info-bubble-tint { background: var(--sky-050); }
+
+/* ---------- Symptom pills ---------- */
+
+.bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bubbles li {
+  padding: 9px 17px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--sky-100);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.bubbles-coral li {
+  background: var(--coral-tint);
+  border-color: rgba(242, 107, 58, 0.45);
+  color: var(--coral-ink);
+}
+
+.bubbles-warn li {
+  background: var(--amber-tint);
+  border-color: rgba(122, 74, 0, 0.35);
+  color: var(--amber-ink);
+}
+
+.bubbles-label {
+  margin: 22px 0 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- Community ---------- */
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.community-grid .form-card { height: 100%; }
+
+.rating-input {
+  display: flex;
+  gap: 6px;
+}
+
+.rating-input input { position: absolute; opacity: 0; pointer-events: none; }
+
+.rating-input label {
+  flex: 1;
+  padding: 10px 0;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--sky-050);
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--navy-800);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rating-input label:hover { border-color: var(--coral); }
+
+.rating-input input:checked + label {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  color: #ffffff;
+}
+
+.rating-input input:focus-visible + label {
+  box-shadow: 0 0 0 3px rgba(242, 107, 58, 0.35);
+}
+
+/* Posted feedback, as speech bubbles in a single column. */
+
+.post {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: start;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px 19px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.post-avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sky-200);
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--navy-800);
+}
+
+.post-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.post-name {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--navy-900);
+}
+
+.post-date { font-size: 0.82rem; color: var(--text-muted); }
+
+.post-stars { color: var(--coral); letter-spacing: 0.12em; font-size: 0.95rem; }
+
+.post-body { margin: 0; color: var(--text-soft); white-space: pre-wrap; }
+
+.member-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.member-row li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 15px 7px 8px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy-800);
+  box-shadow: var(--shadow-sm);
+}
+
+.member-row .post-avatar {
+  width: 28px;
+  height: 28px;
+  font-size: 0.76rem;
+}
+
+.form-status {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--teal-tint);
+  color: var(--teal-ink);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.form-status[hidden] { display: none; }
+
 /* ---------- Motion & responsive ---------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -976,9 +1263,21 @@ input::placeholder, textarea::placeholder { color: rgba(61, 95, 137, 0.7); }
 
   .log-toolbar { align-items: flex-start; gap: 14px; }
   .site-footer .wrap { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+  /* Bubbles stay two-up on phones — they are short enough to read narrow. */
+  .fact-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .fact { padding: 15px 16px 14px; }
+  .fact-num { font-size: 1.8rem; }
+  .bubble-grid { grid-template-columns: 1fr; }
+  .community-grid { grid-template-columns: 1fr; }
+
+  /* The remove button drops below the comment rather than squeezing the text. */
+  .post { grid-template-columns: auto 1fr; }
+  .post .entry-remove { grid-column: 2; justify-self: start; margin-left: -11px; }
 }
 
 @media (max-width: 460px) {
   /* Below this the two-up card grid gets too narrow to read, so it drops to one. */
   .card-grid { grid-template-columns: 1fr; }
+  .fact-grid { grid-template-columns: 1fr; }
 }
