@@ -1,0 +1,17 @@
+{
+  "name": "off-the-block",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fueling and nutrition guide for female swimmers",
+  "author": "Myra Bhalla",
+  "scripts": {
+    "build": "rm -rf www && mkdir www && cp *.html www/ && cp -R assets www/",
+    "sync": "npm run build && npx cap sync ios",
+    "ios": "npm run sync && npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/ios": "^8.5.3"
+  }
+}
