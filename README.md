@@ -18,11 +18,18 @@ It ships as a website and as an app for iPhone (Android coming).
 | `package.json` | Tool versions and build commands |
 | `.github/workflows/` | Publishes `src/` to the live website on every push |
 | `CHANGELOG.md` | What changed in each version |
+| `CLAUDE.md` | Project brain: rules, team and workflows for the Chief of Staff |
+| `.claude/agents/` | Specialist agents: builder, reviewer, content-safety, privacy-guard, release-manager |
+| `.claude/skills/` | Workflows: feature, release, whats-next, retro, log-learning |
+| `.claude/hooks/` | Guardrails that run automatically |
+| `docs/` | Build diary, decisions and learning log |
+| `scripts/check.mjs` | Guardrail checks (`npm run check`) |
 
 ## Commands
 
 ```sh
 npm install      # first time only: download the tools
+npm run check    # guardrail checks, run before saving
 npm run build    # copy src/ into www/
 npm run sync     # build, then update the iPhone app with the new files
 npm run ios      # sync, then open the app in Xcode

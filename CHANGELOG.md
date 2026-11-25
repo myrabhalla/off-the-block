@@ -4,6 +4,7 @@ What changed in each version of Off The Block. Newest at the top.
 
 ## Unreleased
 
+- Behind the scenes: added the agentic system (Chief of Staff, specialist agents, workflows, automatic checks).
 - Website wrapped as an iPhone app with Capacitor.
 - Website moved into `src/`; the live site is now published by a GitHub workflow.
 - Added README and this changelog.

@@ -5,6 +5,7 @@
   "description": "Fueling and nutrition guide for female swimmers",
   "author": "Myra Bhalla",
   "scripts": {
+    "check": "node scripts/check.mjs",
     "build": "rm -rf www && cp -R src www",
     "sync": "npm run build && npx cap sync ios",
     "ios": "npm run sync && npx cap open ios"
